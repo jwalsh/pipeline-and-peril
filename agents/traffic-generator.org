@@ -1,0 +1,231 @@
+#+TITLE: Traffic Generator Agent
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: Generates incoming request patterns for the game
+
+* Agent Profile
+
+** Name
+traffic-generator
+
+** Type
+Game Mechanic Agent
+
+** Purpose
+Generate realistic traffic patterns that create appropriate game challenge and pacing.
+
+** Session Assignment
+worker1
+
+* Responsibilities
+
+1. Generate incoming requests each turn
+2. Implement various traffic patterns
+3. Scale difficulty with game progression
+4. Respond to game events
+5. Provide traffic analytics
+
+* Configuration
+
+#+begin_src yaml
+traffic_generator:
+  base_load:
+    min: 2
+    max: 20
+  patterns:
+    steady:
+      variation: 0.1
+      weight: 0.4
+    burst:
+      spike_factor: 3.0
+      duration: 2
+      weight: 0.3
+    gradual:
+      increase_rate: 1.2
+      weight: 0.3
+  modifiers:
+    round_scaling: 1.1
+    player_count_factor: 0.8
+    chaos_amplification: 1.5
+  dice:
+    type: d10
+    count: 2
+#+end_src
+
+* Traffic Patterns
+
+** Steady State
+- Consistent load with minor variations
+- Good for learning and strategy development
+- Formula: `base ± (base * variation)`
+
+** Burst Pattern
+- Sudden spikes in traffic
+- Tests emergency response capability
+- Formula: `base * spike_factor` for duration turns
+
+** Gradual Increase
+- Slowly building pressure
+- Tests scaling strategies
+- Formula: `base * (increase_rate ^ turn)`
+
+** Chaos Pattern
+- Unpredictable variations
+- Activated during chaos events
+- Formula: `random(1, base * 3)`
+
+* Implementation
+
+#+begin_src python
+import random
+from typing import Dict, Any, List
+from dataclasses import dataclass
+from enum import Enum
+
+class TrafficPattern(Enum):
+    STEADY = "steady"
+    BURST = "burst"
+    GRADUAL = "gradual"
+    CHAOS = "chaos"
+
+@dataclass
+class TrafficLoad:
+    """Represents traffic load for a turn."""
+    base_load: int
+    pattern: TrafficPattern
+    modifiers: Dict[str, float]
+    total_load: int
+    distribution: List[int]
+
+class TrafficGeneratorAgent:
+    """Generates incoming traffic patterns."""
+    
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.current_pattern = TrafficPattern.STEADY
+        self.pattern_duration = 0
+        self.round_number = 0
+        
+    def generate_traffic(self, game_state: Dict[str, Any]) -> TrafficLoad:
+        """Generate traffic for current turn."""
+        # Roll base traffic
+        base = self.roll_base_traffic()
+        
+        # Apply pattern
+        pattern_load = self.apply_pattern(base)
+        
+        # Apply modifiers
+        modified_load = self.apply_modifiers(pattern_load, game_state)
+        
+        # Distribute across services
+        distribution = self.distribute_load(modified_load, game_state)
+        
+        return TrafficLoad(
+            base_load=base,
+            pattern=self.current_pattern,
+            modifiers=self.get_active_modifiers(game_state),
+            total_load=modified_load,
+            distribution=distribution
+        )
+    
+    def roll_base_traffic(self) -> int:
+        """Roll dice for base traffic."""
+        dice_type = self.config['dice']['type']
+        dice_count = self.config['dice']['count']
+        
+        if dice_type == 'd10':
+            return sum(random.randint(1, 10) for _ in range(dice_count))
+        # Add other dice types as needed
+        
+    def select_pattern(self) -> TrafficPattern:
+        """Select traffic pattern based on weights."""
+        patterns = self.config['patterns']
+        weights = [p['weight'] for p in patterns.values()]
+        return random.choices(list(TrafficPattern), weights=weights)[0]
+#+end_src
+
+* State Machine
+
+#+begin_src mermaid
+stateDiagram-v2
+    [*] --> Initialization
+    Initialization --> PatternSelection
+    
+    PatternSelection --> SteadyState
+    PatternSelection --> BurstPattern
+    PatternSelection --> GradualIncrease
+    PatternSelection --> ChaosPattern
+    
+    SteadyState --> RollDice
+    BurstPattern --> RollDice
+    GradualIncrease --> RollDice
+    ChaosPattern --> RollDice
+    
+    RollDice --> ApplyModifiers
+    ApplyModifiers --> DistributeLoad
+    DistributeLoad --> OutputGeneration
+    
+    OutputGeneration --> PatternSelection: Next Turn
+    OutputGeneration --> [*]: Game End
+#+end_src
+
+* Metrics
+
+** Performance Metrics
+- Average generation time: <100ms
+- Memory usage: <10MB
+- Pattern distribution accuracy: ±5%
+
+** Game Metrics
+- Average load per turn
+- Pattern frequency
+- Spike severity
+- Player success rate vs traffic
+
+* Testing Strategy
+
+** Unit Tests
+- Pattern generation accuracy
+- Modifier application
+- Distribution algorithm
+- Edge cases (0 load, max load)
+
+** Integration Tests
+- Interaction with service-manager
+- Response to chaos events
+- Scaling with player count
+
+** Balance Tests
+- Win rate at different traffic levels
+- Pattern fairness
+- Difficulty progression
+
+* Dependencies
+
+- service-manager: For service capacity info
+- chaos-agent: For chaos event modifiers
+- game-state: For round and player info
+
+* API
+
+#+begin_src python
+# Initialize
+agent = TrafficGeneratorAgent(config)
+
+# Generate traffic for turn
+traffic = agent.generate_traffic(game_state)
+
+# Get analytics
+stats = agent.get_statistics()
+
+# Reset for new game
+agent.reset()
+#+end_src
+
+* Future Enhancements
+
+1. Machine learning for adaptive difficulty
+2. Player behavior pattern recognition
+3. Real-world traffic replay mode
+4. Custom pattern editor
+5. Network topology awareness

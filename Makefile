@@ -161,6 +161,89 @@ clean-all: clean
 	@rm -f uv.lock
 	@echo "✓ Full clean complete"
 
+# === EXPERIMENT TARGETS ===
+
+.PHONY: experiment-new experiment-list experiment-run experiment-analyze
+
+# Create a new experiment
+experiment-new:
+	@read -p "Experiment name (e.g., 001-dice-mechanics): " name; \
+	mkdir -p experiments/$$name/{data,analysis,artifacts}; \
+	cp experiments/TEMPLATE.org experiments/$$name/README.org; \
+	echo "✓ Created experiment $$name"
+
+# List all experiments
+experiment-list:
+	@echo "Experiments:"
+	@ls -d experiments/[0-9]* 2>/dev/null | xargs -I {} basename {} || echo "  No experiments found"
+
+# Run an experiment (requires NAME parameter)
+experiment-run:
+	@if [ -z "$(NAME)" ]; then \
+		echo "Usage: make experiment-run NAME=001-dice-mechanics"; \
+		exit 1; \
+	fi
+	@echo "Running experiment $(NAME)..."
+	@cd experiments/$(NAME) && \
+	if [ -f "run.py" ]; then \
+		$(UV) run python run.py; \
+	else \
+		echo "No run.py found in experiment $(NAME)"; \
+	fi
+
+# Analyze experiment results
+experiment-analyze:
+	@if [ -z "$(NAME)" ]; then \
+		echo "Usage: make experiment-analyze NAME=001-dice-mechanics"; \
+		exit 1; \
+	fi
+	@echo "Analyzing experiment $(NAME)..."
+	@cd experiments/$(NAME) && \
+	if [ -f "analyze.py" ]; then \
+		$(UV) run python analyze.py; \
+	else \
+		echo "No analyze.py found in experiment $(NAME)"; \
+	fi
+
+# === TMUX SESSION TARGETS ===
+
+.PHONY: tmux-create tmux-list tmux-kill-all tmux-status
+
+# Create all tmux sessions
+tmux-create:
+	@echo "Creating tmux sessions..."
+	@tmux new-session -d -s worker1 -c $(shell pwd) || echo "worker1 already exists"
+	@tmux new-session -d -s worker2 -c $(shell pwd) || echo "worker2 already exists"
+	@tmux new-session -d -s coordinator -c $(shell pwd) || echo "coordinator already exists"
+	@tmux new-session -d -s meta-coordinator -c $(shell pwd) || echo "meta-coordinator already exists"
+	@echo "✓ TMux sessions ready"
+	@$(MAKE) tmux-list
+
+# List tmux sessions
+tmux-list:
+	@echo "Active tmux sessions:"
+	@tmux list-sessions 2>/dev/null || echo "  No sessions found"
+
+# Kill all project tmux sessions
+tmux-kill-all:
+	@echo "Killing tmux sessions..."
+	@tmux kill-session -t worker1 2>/dev/null || true
+	@tmux kill-session -t worker2 2>/dev/null || true
+	@tmux kill-session -t coordinator 2>/dev/null || true
+	@tmux kill-session -t meta-coordinator 2>/dev/null || true
+	@echo "✓ Sessions terminated"
+
+# Show tmux session status
+tmux-status:
+	@echo "Session Status:"
+	@for session in worker1 worker2 coordinator meta-coordinator; do \
+		if tmux has-session -t $$session 2>/dev/null; then \
+			echo "  $$session: active"; \
+		else \
+			echo "  $$session: inactive"; \
+		fi; \
+	done
+
 # === SPECIAL TARGETS ===
 
 # Ensure directories exist for any rules that need them

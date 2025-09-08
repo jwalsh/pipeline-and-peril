@@ -1,0 +1,305 @@
+#+TITLE: Chaos Agent (The Static)
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: Implements The Static's chaos mechanics and escalation
+
+* Agent Profile
+
+** Name
+chaos-agent
+
+** Type
+Game Mechanic Agent / Antagonist
+
+** Purpose
+Embody "The Static" - the entropy and chaos that attacks distributed systems.
+
+** Session Assignment
+worker1
+
+* Personality
+
+The Static is not random - it's intelligent entropy that:
+- Targets weak points in the system
+- Escalates pressure over time
+- Creates memorable "disaster" moments
+- Forces players to adapt strategies
+
+* Responsibilities
+
+1. Generate chaos events each round
+2. Escalate difficulty appropriately
+3. Target vulnerable services
+4. Create cascade failure opportunities
+5. Maintain game tension
+
+* Configuration
+
+#+begin_src yaml
+chaos_agent:
+  base_chaos_level: 1
+  escalation:
+    rounds_1_3: 1
+    rounds_4_6: 2
+    rounds_7_9: 3
+    round_10: 4
+  event_types:
+    network_partition:
+      severity: high
+      frequency: low
+      targets: connections
+    cpu_spike:
+      severity: medium
+      frequency: medium
+      targets: compute_services
+    disk_failure:
+      severity: high
+      frequency: low
+      targets: database_services
+    memory_leak:
+      severity: low
+      frequency: high
+      targets: any_service
+    ddos_attack:
+      severity: medium
+      frequency: medium
+      targets: entry_points
+  dice:
+    type: d8
+    modifiers:
+      level_1: 0
+      level_2: +2
+      level_3: +4
+      level_4: +6
+#+end_src
+
+* Chaos Event Categories
+
+** Infrastructure Failures
+- Network partitions
+- Disk failures
+- Power outages
+- Hardware failures
+
+** Resource Exhaustion
+- CPU spikes
+- Memory leaks
+- Disk full
+- Connection pool exhaustion
+
+** External Attacks
+- DDoS attacks
+- Data corruption
+- Security breaches
+- API rate limiting
+
+** Environmental Chaos
+- Cascading dependencies
+- Third-party outages
+- Regional failures
+- Time sync issues
+
+* Implementation
+
+#+begin_src python
+import random
+from typing import Dict, Any, List, Optional
+from dataclasses import dataclass
+from enum import Enum
+
+class ChaosSeverity(Enum):
+    LOW = 1
+    MEDIUM = 2
+    HIGH = 3
+    CATASTROPHIC = 4
+
+@dataclass
+class ChaosEvent:
+    """Represents a chaos event."""
+    name: str
+    description: str
+    severity: ChaosSeverity
+    targets: List[str]
+    duration: int
+    effects: Dict[str, Any]
+
+class ChaosAgent:
+    """The Static - intelligent entropy attacking the system."""
+    
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.chaos_level = 1
+        self.event_history = []
+        self.targeted_services = set()
+        
+    def generate_chaos(self, game_state: Dict[str, Any]) -> ChaosEvent:
+        """Generate chaos event for current round."""
+        # Update chaos level based on round
+        self.update_chaos_level(game_state['round'])
+        
+        # Analyze system vulnerabilities
+        vulnerabilities = self.analyze_vulnerabilities(game_state)
+        
+        # Select event type
+        event_type = self.select_event_type(vulnerabilities)
+        
+        # Target selection (intelligent, not random)
+        targets = self.select_targets(event_type, game_state)
+        
+        # Generate event
+        event = self.create_event(event_type, targets)
+        
+        # Record for pattern avoidance
+        self.event_history.append(event)
+        
+        return event
+    
+    def analyze_vulnerabilities(self, game_state: Dict[str, Any]) -> Dict[str, float]:
+        """Identify system weak points."""
+        vulnerabilities = {}
+        
+        # Check for overloaded services
+        for service in game_state['services']:
+            load_ratio = service['load'] / service['capacity']
+            if load_ratio > 0.8:
+                vulnerabilities[service['id']] = load_ratio
+        
+        # Check for single points of failure
+        critical_paths = self.find_critical_paths(game_state)
+        for path in critical_paths:
+            vulnerabilities[path] = 1.0
+        
+        # Check for lack of redundancy
+        non_redundant = self.find_non_redundant_services(game_state)
+        for service in non_redundant:
+            vulnerabilities[service] = 0.8
+            
+        return vulnerabilities
+    
+    def select_event_type(self, vulnerabilities: Dict[str, float]) -> str:
+        """Intelligently select chaos type based on vulnerabilities."""
+        if self.chaos_level >= 3:
+            # High chaos - be mean
+            return self.select_devastating_event(vulnerabilities)
+        elif vulnerabilities:
+            # Target weaknesses
+            return self.select_targeted_event(vulnerabilities)
+        else:
+            # Random selection
+            return self.select_random_event()
+    
+    def escalate_intensity(self, round_number: int) -> None:
+        """The Static grows stronger over time."""
+        escalation = self.config['escalation']
+        
+        if round_number >= 10:
+            self.chaos_level = 4  # CATASTROPHIC
+        elif round_number >= 7:
+            self.chaos_level = 3  # HIGH
+        elif round_number >= 4:
+            self.chaos_level = 2  # MEDIUM
+        else:
+            self.chaos_level = 1  # LOW
+#+end_src
+
+* Chaos Event Table
+
+| d8 Roll | Level 1 Event      | Level 2 Event       | Level 3 Event        | Level 4 Event         |
+|---------+--------------------+---------------------+----------------------+-----------------------|
+|       1 | Minor Bug          | Memory Leak         | Service Crash        | Regional Outage       |
+|       2 | Slow Response      | CPU Spike           | Database Lock        | Data Corruption       |
+|       3 | Connection Error   | Network Congestion  | Network Partition    | Total Network Failure |
+|       4 | Cache Miss         | Cache Invalidation  | Cache Poisoning      | Storage Failure       |
+|       5 | Rate Limiting      | API Timeout         | DDoS Attack          | Security Breach       |
+|       6 | Config Drift       | Deployment Failed   | Rollback Required    | Cascade Failure       |
+|       7 | Log Overflow       | Disk Warning        | Disk Full            | Hardware Failure      |
+|       8 | Clock Skew         | Certificate Expired | DNS Failure          | The Great Collapse    |
+
+* AI Behavior Patterns
+
+** Early Game (Rounds 1-3)
+- Teaching moments
+- Single service targeting
+- Recoverable failures
+- Build tension slowly
+
+** Mid Game (Rounds 4-6)
+- Test player preparation
+- Multi-service events
+- Force trade-offs
+- Reward redundancy
+
+** Late Game (Rounds 7-9)
+- Serious challenges
+- System-wide events
+- Test all preparations
+- Create drama
+
+** Final Round (Round 10)
+- Boss battle intensity
+- Multiple simultaneous events
+- Test everything learned
+- Epic conclusion
+
+* State Machine
+
+#+begin_src mermaid
+stateDiagram-v2
+    [*] --> Dormant
+    
+    Dormant --> Awakening: Round Start
+    Awakening --> Analyzing: Scan System
+    
+    Analyzing --> Planning
+    Planning --> Targeting
+    
+    Targeting --> SingleTarget: Low Chaos
+    Targeting --> MultiTarget: Medium Chaos
+    Targeting --> SystemWide: High Chaos
+    
+    SingleTarget --> EventGeneration
+    MultiTarget --> EventGeneration
+    SystemWide --> EventGeneration
+    
+    EventGeneration --> EventExecution
+    EventExecution --> EffectApplication
+    
+    EffectApplication --> Dormant: Round End
+    EffectApplication --> Escalation: Special Trigger
+    
+    Escalation --> EventGeneration: Bonus Event
+#+end_src
+
+* Metrics
+
+** Engagement Metrics
+- Player stress level (optimal: 6-8/10)
+- Recovery success rate (target: 60-70%)
+- Memorable moments per game (target: 3-5)
+
+** Balance Metrics
+- Chaos contribution to failures (target: 30-40%)
+- Event variety per game (target: 6+ unique)
+- Escalation smoothness (linear increase)
+
+* Testing Strategy
+
+** Personality Tests
+- Verify intelligent targeting
+- Check escalation progression
+- Validate event variety
+- Test recovery possibility
+
+** Balance Tests
+- Win rate impact
+- Difficulty curve
+- Player adaptation
+- Memorable moments
+
+* Future Enhancements
+
+1. Adaptive difficulty based on player skill
+2. Narrative event descriptions
+3. Combo events that chain together
+4. Player-specific targeting
+5. Seasonal event themes

@@ -1,0 +1,299 @@
+#+TITLE: Pipeline & Peril - Project Plan
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: Comprehensive development plan with experiments and milestones
+
+* Project Vision
+
+Pipeline & Peril bridges the gap between abstract distributed systems concepts and tangible understanding through gameplay. The project will progress through distinct experimental phases, each building on previous learnings.
+
+* Development Phases
+
+** Phase 1: Core Mechanics Validation [Q1 2025]
+*** Experiments
+- [[file:experiments/001-dice-mechanics/][001-dice-mechanics]] - Test dice probability distributions
+- [[file:experiments/002-service-states/][002-service-states]] - Validate state transition mechanics
+- [[file:experiments/003-cascade-failures/][003-cascade-failures]] - Test failure propagation rules
+
+*** Deliverables
+- Mathematical model of game mechanics
+- Probability tables for all dice combinations
+- State machine implementation in Python
+- Initial balance parameters
+
+*** Success Criteria
+- [ ] Service failure rate between 15-25% under normal load
+- [ ] Cascade failures resolve within 3-5 propagation steps
+- [ ] Game length consistently 45-90 minutes
+
+** Phase 2: Digital Prototype [Q1-Q2 2025]
+*** Experiments
+- [[file:experiments/004-cli-prototype/][004-cli-prototype]] - Command-line game engine
+- [[file:experiments/005-game-ai/][005-game-ai]] - Basic AI opponents
+- [[file:experiments/006-balance-testing/][006-balance-testing]] - Automated balance testing
+
+*** Deliverables
+- Python CLI implementation
+- AI player agents
+- Automated testing framework
+- Balance adjustment tools
+
+*** Success Criteria
+- [ ] CLI game playable end-to-end
+- [ ] AI wins 40-60% against random play
+- [ ] 1000+ automated games for balance data
+
+** Phase 3: Physical Prototype [Q2 2025]
+*** Experiments
+- [[file:experiments/007-component-design/][007-component-design]] - Physical component prototypes
+- [[file:experiments/008-print-and-play/][008-print-and-play]] - Print-and-play version
+- [[file:experiments/009-playtesting-alpha/][009-playtesting-alpha]] - Alpha playtesting sessions
+
+*** Deliverables
+- Component specifications
+- Print-and-play PDF
+- Playtesting kit
+- Feedback collection system
+
+*** Success Criteria
+- [ ] Print-and-play version downloadable
+- [ ] 10+ playtesting sessions completed
+- [ ] Average fun rating >7/10
+
+** Phase 4: Visual Design [Q2-Q3 2025]
+*** Experiments
+- [[file:experiments/010-art-style/][010-art-style]] - Art direction exploration
+- [[file:experiments/011-iconography/][011-iconography]] - Icon and symbol system
+- [[file:experiments/012-board-layout/][012-board-layout]] - Board design iterations
+
+*** Deliverables
+- Art style guide
+- Icon library
+- Board layouts
+- Card designs
+
+*** Success Criteria
+- [ ] Consistent visual language established
+- [ ] Icons understandable without text
+- [ ] Board readable at arm's length
+
+** Phase 5: Web Implementation [Q3 2025]
+*** Experiments
+- [[file:experiments/013-web-prototype/][013-web-prototype]] - Browser-based version
+- [[file:experiments/014-multiplayer/][014-multiplayer]] - Online multiplayer
+- [[file:experiments/015-tutorial-system/][015-tutorial-system]] - Interactive tutorial
+
+*** Deliverables
+- Web application
+- Multiplayer server
+- Tutorial system
+- Analytics dashboard
+
+*** Success Criteria
+- [ ] <3 second load time
+- [ ] Support 100+ concurrent games
+- [ ] 80% tutorial completion rate
+
+** Phase 6: Educational Package [Q3-Q4 2025]
+*** Experiments
+- [[file:experiments/016-curriculum/][016-curriculum]] - Educational curriculum
+- [[file:experiments/017-workshops/][017-workshops]] - Workshop materials
+- [[file:experiments/018-assessments/][018-assessments]] - Learning assessments
+
+*** Deliverables
+- Teacher's guide
+- Workshop materials
+- Assessment tools
+- Case studies
+
+*** Success Criteria
+- [ ] Covers 10+ distributed systems concepts
+- [ ] 3 difficulty levels
+- [ ] Measurable learning outcomes
+
+** Phase 7: Production [Q4 2025]
+*** Experiments
+- [[file:experiments/019-manufacturing/][019-manufacturing]] - Manufacturing options
+- [[file:experiments/020-packaging/][020-packaging]] - Package design
+- [[file:experiments/021-distribution/][021-distribution]] - Distribution channels
+
+*** Deliverables
+- Manufacturing specifications
+- Package design
+- Distribution plan
+- Marketing materials
+
+*** Success Criteria
+- [ ] Unit cost <$30
+- [ ] 3+ distribution channels identified
+- [ ] Break-even at 500 units
+
+** Phase 8: Launch [Q1 2026]
+*** Experiments
+- [[file:experiments/022-beta-release/][022-beta-release]] - Beta release program
+- [[file:experiments/023-community/][023-community]] - Community building
+- [[file:experiments/024-feedback-loop/][024-feedback-loop]] - Feedback integration
+
+*** Deliverables
+- Beta program
+- Community platform
+- Feedback system
+- Version 1.0
+
+*** Success Criteria
+- [ ] 100+ beta testers
+- [ ] Active community (50+ daily users)
+- [ ] >4.0 average rating
+
+* Experiment Structure
+
+Each experiment follows this structure:
+#+begin_example
+experiments/XXX-name/
+├── README.org          # Experiment overview and hypothesis
+├── plan.org           # Detailed plan and methodology
+├── data/              # Raw data and measurements
+├── analysis/          # Analysis scripts and notebooks
+├── artifacts/         # Generated artifacts (images, reports)
+├── results.org        # Results and conclusions
+└── next-steps.org     # Recommendations for future work
+#+end_example
+
+* Agent Decomposition
+
+** Game Agents
+*** [[file:agents/traffic-generator.org][Traffic Generator Agent]]
+- Generates incoming request patterns
+- Implements various traffic models (steady, burst, gradual)
+- Configurable difficulty levels
+
+*** [[file:agents/chaos-agent.org][Chaos Agent]]
+- Implements The Static's behavior
+- Manages chaos events and escalation
+- Ensures appropriate challenge level
+
+*** [[file:agents/service-manager.org][Service Manager Agent]]
+- Handles service state transitions
+- Calculates capacity and load
+- Manages cascade failures
+
+*** [[file:agents/latency-calculator.org][Latency Calculator Agent]]
+- Computes end-to-end latency
+- Handles network path finding
+- Applies latency penalties
+
+** AI Player Agents
+*** [[file:agents/defensive-player.org][Defensive Player Agent]]
+- Prioritizes reliability over efficiency
+- Builds redundant systems
+- Focus on debugging and maintenance
+
+*** [[file:agents/aggressive-player.org][Aggressive Player Agent]]
+- Maximizes throughput
+- Takes calculated risks
+- Minimal redundancy
+
+*** [[file:agents/balanced-player.org][Balanced Player Agent]]
+- Balances risk and reward
+- Adaptive strategy based on game state
+- Learning from failures
+
+** Analysis Agents
+*** [[file:agents/balance-analyzer.org][Balance Analyzer Agent]]
+- Tracks win rates and game length
+- Identifies imbalanced mechanics
+- Suggests parameter adjustments
+
+*** [[file:agents/complexity-analyzer.org][Complexity Analyzer Agent]]
+- Measures decision complexity
+- Tracks cognitive load
+- Identifies confusion points
+
+*** [[file:agents/fun-analyzer.org][Fun Analyzer Agent]]
+- Tracks engagement metrics
+- Identifies boring/frustrating moments
+- Measures tension and release
+
+* Key Milestones
+
+| Milestone                  | Date       | Description                          |
+|----------------------------+------------+--------------------------------------|
+| Core Mechanics Complete    | 2025-02-01 | Mathematical model validated         |
+| Digital Prototype          | 2025-04-01 | Playable CLI version                 |
+| Alpha Release              | 2025-06-01 | Print-and-play available             |
+| Beta Release               | 2025-09-01 | Web version launched                 |
+| Educational Package        | 2025-11-01 | Curriculum materials complete        |
+| Version 1.0                | 2026-01-01 | Production-ready release             |
+
+* Risk Management
+
+** Technical Risks
+- Complexity overwhelming for casual players
+- Balance issues discovered late
+- Digital/physical feature parity
+
+** Mitigation Strategies
+- Early and frequent playtesting
+- Automated balance testing
+- Modular rule system for complexity levels
+
+* Success Metrics
+
+** Quantitative
+- Game length: 45-90 minutes (target: 60)
+- Setup time: <10 minutes
+- Rules explanation: <15 minutes
+- Player retention: >60% play again
+
+** Qualitative
+- "I learned something": >80% agree
+- "I had fun": >85% agree
+- "I would recommend": >75% agree
+- "Complexity was appropriate": >70% agree
+
+* Resource Requirements
+
+** Development Team
+- Game Designer (lead)
+- Software Developer (Python/Web)
+- UX/UI Designer
+- Artist/Illustrator
+- Educational Consultant
+- Playtest Coordinator
+
+** Tools and Infrastructure
+- GitHub (version control)
+- Python ecosystem (uv, pytest, black)
+- Web stack (TBD based on experiments)
+- Analytics platform
+- Community platform
+
+** Budget Estimates
+- Development: $50,000
+- Art and Design: $15,000
+- Manufacturing (500 units): $15,000
+- Marketing: $10,000
+- Contingency: $10,000
+- Total: $100,000
+
+* Communication Plan
+
+** Internal
+- Weekly development updates
+- Bi-weekly experiment reviews
+- Monthly milestone reviews
+
+** External
+- Monthly development blog
+- Quarterly community updates
+- Beta tester newsletter
+- Social media presence
+
+* Next Steps
+
+1. [ ] Create experiment directories
+2. [ ] Define agent interfaces
+3. [ ] Set up automated testing
+4. [ ] Begin Experiment 001
+5. [ ] Recruit playtesters
+6. [ ] Establish community channels

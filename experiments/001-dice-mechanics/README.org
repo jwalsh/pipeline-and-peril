@@ -1,0 +1,93 @@
+#+TITLE: Experiment 001: Dice Mechanics
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+TAGS: mechanics, probability, balance
+
+* Hypothesis
+
+The proposed dice system (d20, d12, d10, d8, d6, d4) will create appropriate probability distributions for game events, with failure rates between 15-25% under normal conditions and meaningful player decisions.
+
+* Objectives
+
+1. Calculate probability distributions for all dice types
+2. Determine optimal difficulty thresholds
+3. Validate that player choices meaningfully affect outcomes
+4. Ensure dice availability doesn't limit gameplay
+
+* Methodology
+
+** Phase 1: Mathematical Analysis
+- Calculate probability distributions for each die
+- Model combined dice mechanics (e.g., d20 vs target numbers)
+- Create probability tables for common scenarios
+
+** Phase 2: Simulation
+- Implement dice mechanics in Python
+- Run 10,000 simulated service checks at various load levels
+- Test cascade failure propagation rates
+
+** Phase 3: Validation
+- Compare simulation results to mathematical model
+- Identify edge cases and anomalies
+- Adjust parameters for target failure rates
+
+* Expected Outcomes
+
+| Scenario                  | Target Success Rate | Acceptable Range |
+|---------------------------+--------------------+------------------|
+| Light Load (1-3)          | 85-95%             | ±5%              |
+| Normal Load (4-6)         | 75-85%             | ±5%              |
+| Heavy Load (7-9)          | 60-70%             | ±5%              |
+| Overload (10+)            | 30-40%             | ±10%             |
+
+* Data Collection
+
+- Number of dice rolls per game
+- Distribution of roll results
+- Success/failure rates by scenario
+- Player perception of fairness
+- Time spent on dice resolution
+
+* Analysis Plan
+
+1. Statistical analysis of dice distributions
+2. Monte Carlo simulation of game scenarios
+3. Sensitivity analysis of threshold values
+4. Player decision impact measurement
+
+* Success Criteria
+
+- [ ] Mathematical model matches simulation (±2%)
+- [ ] Failure rates within target ranges
+- [ ] Player choices change success rate by >20%
+- [ ] Resolution time <5 seconds per check
+- [ ] Standard dice set sufficient for 4 players
+
+* Resources Required
+
+- Python with numpy, scipy, matplotlib
+- Jupyter notebooks for analysis
+- Dice rolling simulator
+- Statistical analysis tools
+
+* Timeline
+
+| Task                    | Duration | Start      | End        |
+|-------------------------+----------+------------+------------|
+| Mathematical modeling   | 2 days   | 2025-01-10 | 2025-01-11 |
+| Simulation development  | 3 days   | 2025-01-12 | 2025-01-14 |
+| Data collection         | 2 days   | 2025-01-15 | 2025-01-16 |
+| Analysis                | 2 days   | 2025-01-17 | 2025-01-18 |
+| Documentation           | 1 day    | 2025-01-19 | 2025-01-19 |
+
+* Risk Assessment
+
+** Risks
+- Dice mechanics too complex for casual players
+- Probability distributions create "feel bad" moments
+- Physical dice availability issues
+
+** Mitigations
+- Provide quick reference probability cards
+- Implement "hero moments" for critical successes
+- Design for standard polyhedral dice set

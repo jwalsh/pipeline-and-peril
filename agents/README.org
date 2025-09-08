@@ -1,0 +1,129 @@
+#+TITLE: Pipeline & Peril - Agent Profiles
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: Agent definitions for game mechanics and AI players
+
+* Agent Architecture
+
+Agents are autonomous components that handle specific aspects of the game. Each agent has clearly defined responsibilities, interfaces, and behaviors.
+
+* Agent Categories
+
+** Game Mechanic Agents
+Manage core game systems and rules.
+
+** AI Player Agents
+Implement different playing strategies.
+
+** Analysis Agents
+Collect and analyze game metrics.
+
+** Coordinator Agents
+Orchestrate multi-agent workflows.
+
+* Agent Interface Specification
+
+All agents implement this base interface:
+
+#+begin_src python
+from abc import ABC, abstractmethod
+from typing import Dict, Any, Optional
+
+class BaseAgent(ABC):
+    """Base class for all Pipeline & Peril agents."""
+    
+    def __init__(self, name: str, config: Optional[Dict[str, Any]] = None):
+        self.name = name
+        self.config = config or {}
+        self.state = {}
+        
+    @abstractmethod
+    def initialize(self) -> None:
+        """Initialize agent state."""
+        pass
+    
+    @abstractmethod
+    def execute(self, context: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute agent's primary function."""
+        pass
+    
+    @abstractmethod
+    def validate(self, input_data: Dict[str, Any]) -> bool:
+        """Validate input data."""
+        pass
+    
+    def reset(self) -> None:
+        """Reset agent to initial state."""
+        self.state = {}
+        self.initialize()
+#+end_src
+
+* Agent Registry
+
+| Agent Name          | Type      | Status      | Priority | Session     |
+|---------------------+-----------+-------------+----------+-------------|
+| traffic-generator   | Mechanic  | Planned     | High     | worker1     |
+| chaos-agent         | Mechanic  | Planned     | High     | worker1     |
+| service-manager     | Mechanic  | Planned     | High     | worker1     |
+| latency-calculator  | Mechanic  | Planned     | Medium   | worker1     |
+| defensive-player    | AI Player | Planned     | Medium   | worker2     |
+| aggressive-player   | AI Player | Planned     | Medium   | worker2     |
+| balanced-player     | AI Player | Planned     | Low      | worker2     |
+| balance-analyzer    | Analysis  | Planned     | High     | coordinator |
+| complexity-analyzer | Analysis  | Planned     | Medium   | coordinator |
+| fun-analyzer        | Analysis  | Planned     | Low      | coordinator |
+
+* Communication Protocol
+
+** Message Format
+#+begin_src json
+{
+  "timestamp": "2025-01-09T12:00:00Z",
+  "source": "agent-name",
+  "target": "agent-name or broadcast",
+  "type": "request|response|event|command",
+  "payload": {
+    "action": "specific-action",
+    "data": {}
+  },
+  "metadata": {
+    "priority": "high|medium|low",
+    "timeout": 5000,
+    "retry": 3
+  }
+}
+#+end_src
+
+** Event Types
+- `game.start` - New game initiated
+- `turn.begin` - Player turn started
+- `service.failed` - Service failure occurred
+- `chaos.triggered` - Chaos event activated
+- `game.end` - Game completed
+
+* Agent Development Process
+
+1. **Profile Creation**: Define agent specification
+2. **Interface Implementation**: Implement base interface
+3. **Unit Testing**: Test in isolation
+4. **Integration Testing**: Test with other agents
+5. **Performance Tuning**: Optimize for efficiency
+6. **Documentation**: Complete agent documentation
+
+* Quality Standards
+
+All agents must:
+- [ ] Pass unit tests with >90% coverage
+- [ ] Handle errors gracefully
+- [ ] Log actions for debugging
+- [ ] Provide performance metrics
+- [ ] Include comprehensive documentation
+- [ ] Support configuration override
+
+* Next Steps
+
+1. Implement base agent class
+2. Create traffic-generator agent
+3. Create chaos-agent
+4. Develop testing framework
+5. Build agent orchestrator

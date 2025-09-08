@@ -1,0 +1,251 @@
+#+TITLE: Pipeline & Peril - Development Methodology
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: Parallel development methodology using tmux sessions and agent decomposition
+
+* Development Philosophy
+
+We employ a parallel, agent-based development methodology that mirrors the distributed systems concepts the game teaches. Each component is developed independently but coordinates through well-defined interfaces.
+
+* Parallel Work Sessions
+
+** TMux Session Architecture
+
+We use four parallel tmux sessions for development:
+
+*** worker1 - Core Mechanics Development
+- Focus: Game mechanics implementation
+- Responsibilities:
+  - Dice probability systems
+  - Service state machines
+  - Game rule implementation
+  - Python core modules
+
+*** worker2 - Content & Design
+- Focus: Game content and visual design
+- Responsibilities:
+  - Component design
+  - Documentation writing
+  - Art asset creation
+  - Playtesting materials
+
+*** coordinator - Integration & Testing
+- Focus: System integration and quality
+- Responsibilities:
+  - Integration testing
+  - Balance verification
+  - Build automation
+  - CI/CD pipeline
+
+*** meta-coordinator - Strategic Planning
+- Focus: Project oversight and direction
+- Responsibilities:
+  - Experiment planning
+  - Milestone tracking
+  - Resource allocation
+  - Stakeholder communication
+
+** Session Commands
+#+begin_src bash
+# Create all sessions
+tmux new-session -d -s worker1
+tmux new-session -d -s worker2
+tmux new-session -d -s coordinator
+tmux new-session -d -s meta-coordinator
+
+# Attach to a session
+tmux attach -t worker1
+
+# Send commands to sessions
+tmux send-keys -t worker1 "make test" Enter
+tmux send-keys -t worker2 "make docs" Enter
+
+# Monitor all sessions
+tmux list-sessions
+#+end_src
+
+* Agent-Based Decomposition
+
+** Agent Hierarchy
+
+#+begin_src mermaid
+graph TD
+    MC[Meta-Coordinator Agent] --> C[Coordinator Agent]
+    C --> W1[Worker Agent 1]
+    C --> W2[Worker Agent 2]
+    C --> GA[Game Agents]
+    C --> AA[Analysis Agents]
+    
+    GA --> TG[Traffic Generator]
+    GA --> CA[Chaos Agent]
+    GA --> SM[Service Manager]
+    
+    AA --> BA[Balance Analyzer]
+    AA --> FA[Fun Analyzer]
+    AA --> CM[Complexity Analyzer]
+#+end_src
+
+** Agent Communication Protocol
+
+Agents communicate through:
+1. **Message Queues**: Asynchronous task distribution
+2. **Shared State**: Git repository as source of truth
+3. **Event Streams**: Real-time coordination signals
+4. **Result Artifacts**: Experiment outputs and analysis
+
+* Experiment-Driven Development
+
+** Experiment Lifecycle
+
+1. **Hypothesis Formation** (meta-coordinator)
+   - Identify question to answer
+   - Define success criteria
+   - Allocate resources
+
+2. **Experiment Setup** (coordinator)
+   - Create experiment directory
+   - Define data collection
+   - Prepare analysis tools
+
+3. **Parallel Execution** (worker1 & worker2)
+   - worker1: Implementation
+   - worker2: Documentation
+   - Both: Data generation
+
+4. **Analysis** (coordinator)
+   - Aggregate results
+   - Statistical analysis
+   - Visualization
+
+5. **Integration** (meta-coordinator)
+   - Review findings
+   - Update project plan
+   - Plan next experiment
+
+** Experiment Naming Convention
+
+Format: `XXX-descriptor`
+- XXX: Three-digit sequential number
+- descriptor: Kebab-case description
+
+Examples:
+- 001-dice-mechanics
+- 002-service-states
+- 003-cascade-failures
+
+* Artifact Management
+
+** Directory Structure
+#+begin_example
+experiments/XXX-name/
+├── README.org          # Overview and hypothesis
+├── plan.org           # Detailed methodology
+├── data/              # Raw experimental data
+│   ├── raw/          # Unprocessed data
+│   └── processed/    # Cleaned data
+├── analysis/          # Analysis code
+│   ├── notebooks/    # Jupyter notebooks
+│   └── scripts/      # Python scripts
+├── artifacts/         # Generated outputs
+│   ├── figures/      # Graphs and charts
+│   ├── reports/      # Written reports
+│   └── models/       # Trained models
+├── results.org        # Conclusions
+└── next-steps.org     # Future work
+#+end_example
+
+** Artifact Lifecycle
+1. **Generation**: Created during experiments
+2. **Validation**: Checked for correctness
+3. **Storage**: Committed to git (with LFS for large files)
+4. **Reference**: Linked from documentation
+5. **Archive**: Moved to cold storage after use
+
+* Quality Assurance
+
+** Parallel Testing Strategy
+
+Each worker session runs different test suites:
+
+| Session     | Test Focus           | Frequency  |
+|-------------+----------------------+------------|
+| worker1     | Unit tests           | On save    |
+| worker2     | Integration tests    | On commit  |
+| coordinator | Balance tests        | Daily      |
+| meta        | Acceptance tests     | Per sprint |
+
+** Continuous Integration
+
+The coordinator session monitors:
+- Code quality (linting, formatting)
+- Test coverage (>80% target)
+- Documentation completeness
+- Build success
+
+* Communication Patterns
+
+** Synchronous Coordination
+- Daily standup (all sessions)
+- Experiment reviews (coordinator-led)
+- Sprint planning (meta-coordinator-led)
+
+** Asynchronous Updates
+- Git commits with detailed messages
+- Experiment READMEs updated continuously
+- Slack/Discord integration for notifications
+- Progress tracked in TODO.org
+
+* Tools and Technologies
+
+** Development Stack
+- **Language**: Python 3.13+
+- **Package Manager**: uv
+- **Build System**: GNU Make
+- **Version Control**: Git with detailed notes
+- **Documentation**: Org-mode
+- **Testing**: pytest, hypothesis
+- **Analysis**: Jupyter, pandas, matplotlib
+
+** Session-Specific Tools
+
+| Session         | Primary Tools                    |
+|-----------------+----------------------------------|
+| worker1         | Python, pytest, black            |
+| worker2         | Emacs, Inkscape, PlantUML       |
+| coordinator     | Make, GitHub Actions, pytest     |
+| meta-coordinator| Org-mode, Gantt charts, Jira    |
+
+* Methodology Benefits
+
+1. **Parallelization**: Multiple aspects developed simultaneously
+2. **Isolation**: Failures don't cascade across sessions
+3. **Specialization**: Each session optimized for its task
+4. **Resilience**: Work continues if one session fails
+5. **Scalability**: Easy to add more worker sessions
+
+* Anti-Patterns to Avoid
+
+1. **Session Coupling**: Don't make sessions dependent
+2. **Synchronous Blocking**: Use async communication
+3. **Monolithic Commits**: Keep changes focused
+4. **Documentation Lag**: Update docs with code
+5. **Testing Debt**: Run tests continuously
+
+* Success Metrics
+
+| Metric                  | Target | Measurement |
+|-------------------------+--------+-------------|
+| Parallel efficiency     | >75%   | Time saved  |
+| Test coverage           | >80%   | pytest-cov  |
+| Documentation coverage  | 100%   | Doc review  |
+| Experiment velocity     | 2/week | Completed   |
+| Integration frequency   | Daily  | Git commits |
+
+* Continuous Improvement
+
+- Weekly retrospectives on methodology
+- Experiment post-mortems
+- Tool and process refinement
+- Knowledge sharing sessions
+
+This methodology enables rapid, reliable development while maintaining quality and fostering innovation.
