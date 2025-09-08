@@ -2,6 +2,18 @@
 #+AUTHOR: Jason Walsh
 #+DESCRIPTION: A board game teaching distributed systems concepts through RPG dice mechanics
 
+[[https://github.com/jwalsh/pipeline-and-peril][https://img.shields.io/badge/GitHub-pipeline--and--peril-181717?logo=github]]
+[[https://github.com/jwalsh/pipeline-and-peril/blob/main/LICENSE][https://img.shields.io/badge/License-MIT-yellow.svg]]
+[[https://github.com/jwalsh/pipeline-and-peril/issues][https://img.shields.io/github/issues/jwalsh/pipeline-and-peril]]
+[[https://github.com/jwalsh/pipeline-and-peril/stargazers][https://img.shields.io/github/stars/jwalsh/pipeline-and-peril?style=social]]
+[[https://github.com/jwalsh/pipeline-and-peril/network/members][https://img.shields.io/github/forks/jwalsh/pipeline-and-peril?style=social]]
+
+[[https://img.shields.io/badge/Type-Board_Game-blue]]
+[[https://img.shields.io/badge/Category-Educational-green]]
+[[https://img.shields.io/badge/Theme-Distributed_Systems-purple]]
+[[https://img.shields.io/badge/Mechanics-Dice_Rolling-orange]]
+[[https://img.shields.io/badge/Status-In_Development-red]]
+
 * Pipeline & Peril 🎲
 
 /Build resilient distributed systems while battling entropy in this educational board game/
