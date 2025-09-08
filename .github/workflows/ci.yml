@@ -1,0 +1,120 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check-versions:
+    name: Check Tools and Versions
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: System Info
+        run: |
+          echo "=== System Information ==="
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Runner Arch: $(uname -m)"
+          echo "Available cores: $(nproc)"
+          echo "Available memory: $(free -h | grep Mem | awk '{print $2}')"
+          echo ""
+          
+      - name: Check Git Version
+        run: |
+          echo "=== Git Version ==="
+          git --version
+          echo ""
+          
+      - name: Check Make Version
+        run: |
+          echo "=== Make Version ==="
+          make --version | head -n 1
+          echo ""
+          
+      - name: Check Python Version
+        run: |
+          echo "=== Python Version ==="
+          python3 --version
+          echo ""
+          
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+          
+      - name: Check uv Version
+        run: |
+          echo "=== uv Version ==="
+          uv --version
+          echo ""
+          
+      - name: Check for Emacs (for org-mode export)
+        run: |
+          echo "=== Emacs Version ==="
+          if command -v emacs &> /dev/null; then
+            emacs --version | head -n 1
+          else
+            echo "Emacs not installed (needed for org-mode export)"
+          fi
+          echo ""
+          
+      - name: Check Node.js Version (optional)
+        run: |
+          echo "=== Node.js Version (optional) ==="
+          if command -v node &> /dev/null; then
+            node --version
+          else
+            echo "Node.js not installed"
+          fi
+          echo ""
+          
+      - name: List Project Structure
+        run: |
+          echo "=== Project Structure ==="
+          ls -la
+          echo ""
+          echo "=== Docs Directory ==="
+          ls -la docs/
+          echo ""
+          
+      - name: Validate pyproject.toml
+        run: |
+          echo "=== Validating pyproject.toml ==="
+          if [ -f pyproject.toml ]; then
+            echo "✓ pyproject.toml exists"
+            echo "Content preview:"
+            head -n 20 pyproject.toml
+          else
+            echo "✗ pyproject.toml not found"
+            exit 1
+          fi
+          
+      - name: Check README files
+        run: |
+          echo "=== README Files ==="
+          if [ -f README.org ]; then
+            echo "✓ README.org exists ($(wc -l < README.org) lines)"
+          else
+            echo "✗ README.org not found"
+          fi
+          
+          if [ -f README.md ]; then
+            echo "✓ README.md exists ($(wc -l < README.md) lines)"
+          else
+            echo "ℹ README.md not found (expected - generated from org)"
+          fi
+          
+      - name: Summary
+        run: |
+          echo "=== CI Check Summary ==="
+          echo "✓ Repository checked out successfully"
+          echo "✓ Tool versions documented"
+          echo "✓ Project structure validated"
+          echo ""
+          echo "Pipeline & Peril - CI check complete!"
