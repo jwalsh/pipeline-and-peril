@@ -1,0 +1,148 @@
+#+TITLE: Pipeline & Peril
+#+AUTHOR: Jason Walsh
+#+DESCRIPTION: A board game teaching distributed systems concepts through RPG dice mechanics
+
+* Pipeline & Peril 🎲
+
+/Build resilient distributed systems while battling entropy in this educational board game/
+
+[[https://img.shields.io/badge/Players-2--4-blue.svg]]
+[[https://img.shields.io/badge/Time-45--90min-green.svg]]
+[[https://img.shields.io/badge/Age-14+-orange.svg]]
+[[https://img.shields.io/badge/Complexity-Medium-yellow.svg]]
+
+** Overview
+
+Pipeline & Peril transforms complex distributed systems concepts into engaging tabletop gameplay. Players construct and maintain services while defending against "The Static" - the embodiment of system entropy and chaos.
+
+Using polyhedral RPG dice to simulate real-world computing challenges, players learn about:
+- Service architecture and dependencies
+- Load balancing and traffic management
+- Cascading failures and resilience patterns
+- Debugging and incident response
+- Chaos engineering principles
+
+** Core Mechanics
+
+*** Dice System
+Each die type represents a different computational concept:
+
+| Die  | Represents          | Usage                           |
+|------+--------------------+---------------------------------|
+| d20  | Action Resolution  | Service checks, debugging       |
+| d12  | Network Latency    | Calculate request delays        |
+| d10  | Traffic Load       | Incoming requests per turn      |
+| d8   | Chaos Events       | System-wide disruptions         |
+| d6   | Resources          | CPU, Memory, Storage allocation |
+| d4   | Bug Severity       | Difficulty to fix issues        |
+
+*** Turn Structure
+1. *Traffic Phase*: Roll 2d10 for incoming requests
+2. *Action Phase*: Each player takes 3 actions
+3. *Resolution Phase*: Services handle load or cascade failures
+4. *Chaos Phase*: The Static strikes with system-wide events
+
+** Game Components
+
+*** Physical Components
+- 43 polyhedral dice (mixed types)
+- 140+ tokens and markers
+- 30 service tiles (compute, database, cache, queue)
+- 60+ event and chaos cards
+- 4 character boards with unique abilities
+- Network path connectors
+- Tracking boards for uptime and chaos
+
+*** Character Classes
+- *Developer*: Reroll failed service checks
+- *Architect*: Create redundant paths efficiently
+- *Data Engineer*: Optimize latency across the system
+- *DevOps*: Mitigate chaos events
+
+** Educational Value
+
+Pipeline & Peril teaches real distributed systems concepts through play:
+
+- *Reliability Engineering*: Understanding SLAs, uptime, and failure modes
+- *System Design*: Building scalable, resilient architectures
+- *Incident Management*: Prioritizing fixes under pressure
+- *Capacity Planning*: Resource allocation and scaling decisions
+- *Chaos Engineering*: Anticipating and handling unexpected failures
+
+** Project Structure
+
+#+begin_src
+pipeline-and-peril/
+├── README.org          # This file
+├── SETUP.org          # Literate configuration (generates all files)
+├── docs/              # Game documentation
+│   ├── game-rules.md
+│   ├── components.md
+│   ├── architecture.mmd
+│   └── game-flow.mmd
+├── assets/            # Visual assets
+│   ├── tiles/
+│   └── cards/
+├── playtesting/       # Testing notes and feedback
+└── scripts/           # Setup and utility scripts
+#+end_src
+
+** Quick Start
+
+*** For Players
+1. Download the print-and-play materials from =assets/=
+2. Read the rules in =docs/game-rules.md=
+3. Print character boards and reference cards
+4. Gather the required dice (or use a dice app)
+
+*** For Contributors
+1. Clone the repository
+2. Run =org-babel-tangle= on =SETUP.org= to generate all files
+3. Execute =./scripts/setup.sh= to create directory structure
+4. See =TODO.org= for development roadmap
+
+** Development Status
+
+Pipeline & Peril is in active development. Current focus:
+- [ ] Finalizing core mechanics balance
+- [ ] Creating print-and-play prototype
+- [ ] Playtesting with target audiences
+- [ ] Developing visual design language
+
+** Game Variants
+
+*** Cooperative Mode
+All players work together to maintain system uptime above 80% for 10 rounds.
+
+*** Competitive Mode
+Players compete for the highest score based on handled requests minus failure penalties.
+
+*** Learning Mode
+Simplified rules for classroom use, focusing on specific concepts like load balancing or failure recovery.
+
+** Contributing
+
+We welcome contributions! Areas where help is needed:
+- Playtesting and feedback
+- Visual design and artwork
+- Rules clarification and examples
+- Educational materials for classrooms
+- Digital implementation ideas
+
+** Philosophy
+
+Pipeline & Peril bridges the gap between abstract systems concepts and tangible understanding. By representing computational challenges as physical dice and tokens, players develop intuition for distributed systems behavior that translates directly to real-world engineering.
+
+The game emphasizes that failure is normal and expected - the challenge isn't preventing all failures, but building systems that gracefully degrade and recover.
+
+** License
+
+This project is open source. See LICENSE file for details.
+
+** Acknowledgments
+
+Inspired by real-world distributed systems challenges and the belief that complex technical concepts can be made accessible through thoughtful game design.
+
+---
+
+/For the latest updates and discussions, check our [[https://github.com/jwalsh/pipeline-and-peril][GitHub repository]]./
