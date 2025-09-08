@@ -1,0 +1,40 @@
+* Pipeline & Peril Development
+
+** DONE Initial Design
+- [X] Create dice-to-concept mappings
+- [X] Define core mechanics
+- [X] Write basic rules
+
+** TODO Prototyping [0/4]
+- [ ] Create print-and-play service tiles
+- [ ] Design character boards
+- [ ] Create reference cards
+- [ ] Build chaos/event card deck
+
+** TODO Playtesting [0/3]
+- [ ] Solo playtest basic mechanics
+- [ ] 2-player balance testing
+- [ ] 4-player full game test
+
+** TODO Refinement [0/4]
+- [ ] Simplify cascade failure rules
+- [ ] Balance chaos frequency
+- [ ] Tune resource economy
+- [ ] Add advanced variant rules
+
+** TODO Production [0/3]
+- [ ] Professional artwork
+- [ ] Component sourcing
+- [ ] Rulebook layout
+
+** Ideas
+*** Alternative Themes
+- Space stations instead of servers
+- Fantasy magical networks
+- Biological systems (neural networks)
+
+*** Expansion Concepts
+- Security attacks (new die type: d10 threat level)
+- Cloud provider events  
+- Microservices complexity cards
+- AI/ML workload tiles
