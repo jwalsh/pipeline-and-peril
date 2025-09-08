@@ -1,0 +1,4 @@
+Build system milestone: 2025-09-08 19:30:43
+Established Python project structure with uv package manager.
+README.md now generated from org-mode source via Makefile.
+Ready for game logic implementation in Python.
