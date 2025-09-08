@@ -10,6 +10,12 @@ README.pdf
 ltximg/
 *_archive/
 
+# Build artifacts and sentinels
+build/
+dist/
+.dev-deps.stamp
+*.tmp
+
 # Python
 __pycache__/
 *.py[cod]
