@@ -85,36 +85,41 @@ Pipeline & Peril teaches real distributed systems concepts through play:
 
 ** Documentation
 
-- [[file:docs/game-rules.md][📖 Complete Game Rules]] - Full rulebook with detailed turn structure
-- [[file:docs/components.md][🎲 Components List]] - Complete inventory of all game pieces
-- [[file:docs/architecture.mmd][🏗️ System Architecture]] - Mermaid diagram of game flow
-- [[file:docs/game-flow.mmd][🔄 Game State Machine]] - State diagram of turn progression
+- [[file:docs/game-rules.org][📖 Complete Game Rules]] - Full rulebook with detailed turn structure
+- [[file:docs/components.org][🎲 Components List]] - Complete inventory of all game pieces
+- [[file:docs/architecture.org][🏗️ System Architecture]] - Game flow and system diagrams
+- [[file:docs/game-flow.org][🔄 Game State Machine]] - State diagram of turn progression
 - [[file:TODO.org][✅ Development TODO]] - Project roadmap and ideas
 
 ** Project Structure
 
 #+begin_src
 pipeline-and-peril/
-├── README.org          # This file
-├── README.md           # Markdown version for quick reference
+├── README.org          # This file (main documentation)
+├── LICENSE             # MIT License
 ├── TODO.org            # Development roadmap
-├── docs/               # Game documentation
-│   ├── game-rules.md   # Complete rulebook
-│   ├── components.md   # Component inventory
-│   ├── architecture.mmd # System flow diagram
-│   └── game-flow.mmd   # Turn state machine
+├── docs/               # Game documentation (all org-mode)
+│   ├── game-rules.org  # Complete rulebook
+│   ├── components.org  # Component inventory
+│   ├── architecture.org # System flow diagrams
+│   └── game-flow.org   # Turn state machine
 ├── assets/             # Visual assets
 │   ├── tiles/          # Service tile designs
 │   └── cards/          # Event and chaos cards
+├── src/                # Python implementation
+│   └── pipeline_and_peril/
+├── tests/              # Test suite
 ├── playtesting/        # Testing notes and feedback
-└── scripts/            # Setup and utility scripts
+├── scripts/            # Setup and utility scripts
+├── Makefile            # Build automation (GNU Make)
+└── pyproject.toml      # Python project configuration
 #+end_src
 
 ** Quick Start
 
 *** For Players
 1. Download the print-and-play materials from =assets/=
-2. Read the rules in =docs/game-rules.md=
+2. Read the rules in [[file:docs/game-rules.org][docs/game-rules.org]]
 3. Print character boards and reference cards
 4. Gather the required dice (or use a dice app)
 
@@ -160,7 +165,7 @@ The game emphasizes that failure is normal and expected - the challenge isn't pr
 
 ** License
 
-This project is open source. See LICENSE file for details.
+This project is open source. See [[file:LICENSE][LICENSE]] file for details.
 
 ** Acknowledgments
 

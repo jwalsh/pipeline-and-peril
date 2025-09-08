@@ -1,0 +1,150 @@
+#+TITLE: Pipeline & Peril - System Architecture
+#+AUTHOR: Jason Walsh
+#+DESCRIPTION: Game flow and system architecture diagrams
+
+* Game Turn Flow Architecture
+
+This diagram shows the complete flow of a game turn, from traffic generation through chaos resolution.
+
+#+begin_src mermaid :file architecture.png :exports results
+graph TD
+    %% Player Turn Flow
+    Start([Start Turn]) --> Traffic[Roll 2d10 for Traffic]
+    Traffic --> Distribute[Distribute Load Tokens]
+    Distribute --> Actions[Player Actions x3]
+    
+    Actions --> Build[Build Service]
+    Actions --> Connect[Connect Services]
+    Actions --> Allocate[Allocate Resources]
+    Actions --> Debug[Debug Services]
+    Actions --> Scale[Scale Service]
+    
+    Build --> Resolution
+    Connect --> Resolution
+    Allocate --> Resolution
+    Debug --> Resolution
+    Scale --> Resolution
+    
+    Resolution[Resolution Phase] --> ServiceCheck{Service Check}
+    ServiceCheck -->|Pass| Success[Handle Load]
+    ServiceCheck -->|Fail| Cascade[Cascade Failure]
+    
+    Success --> Latency[Roll d12 for Latency]
+    Cascade --> Latency
+    
+    Latency --> Chaos[Chaos Phase]
+    Chaos --> ChaosRoll[Roll d8]
+    ChaosRoll --> ChaosEffect[Apply Effect]
+    
+    ChaosEffect --> EndTurn{End Turn}
+    EndTurn -->|More Rounds| Start
+    EndTurn -->|Game End| Victory{Check Victory}
+    
+    %% Service States
+    subgraph Service States
+        Healthy[Healthy Service]
+        Degraded[Degraded Service]
+        Failed[Failed Service]
+        
+        Healthy -->|Bug| Degraded
+        Degraded -->|Debug| Healthy
+        Degraded -->|Overload| Failed
+        Failed -->|Repair| Degraded
+    end
+
+    style Start fill:#90EE90
+    style Victory fill:#FFD700
+    style Failed fill:#FF6B6B
+    style Chaos fill:#FF8C00
+#+end_src
+
+* Key Architecture Components
+
+** Traffic Generation System
+- Uses 2d10 to generate 2-20 requests per turn
+- Distributes load across entry point services
+- Scales with player count and round number
+
+** Action Resolution System
+Each player action modifies the system state:
+- *Build*: Adds new nodes to the service graph
+- *Connect*: Creates edges between nodes
+- *Allocate*: Assigns resources to nodes
+- *Debug*: Removes negative states from nodes
+- *Scale*: Increases node capacity
+
+** Service Resolution Engine
+1. Calculate effective capacity: base + resources - bugs
+2. Compare load vs capacity
+3. Roll d20 + modifiers vs difficulty
+4. Apply success or failure state
+
+** Cascade Failure Mechanism
+#+begin_example
+for each failed_service:
+    for each dependent_service:
+        dependent_service.load += 2
+        if failed_service.is_critical:
+            dependent_service.state = FAILED
+        check_service(dependent_service)
+#+end_example
+
+** Latency Calculation
+- Each network hop adds 1d12 ms latency
+- Total latency affects next turn's actions
+- Cache services reduce latency by 1 step
+- Network partitions add infinite latency
+
+** Chaos System
+The Static's influence grows each round:
+- Round 1-3: Chaos level 1 (minor events)
+- Round 4-6: Chaos level 2 (moderate events)
+- Round 7-9: Chaos level 3 (major events)
+- Round 10: Chaos level 4 (catastrophic events)
+
+* System Metrics
+
+** Uptime Calculation
+#+begin_example
+uptime = (successful_requests / total_requests) * 100
+#+end_example
+
+** Score Calculation (Competitive Mode)
+#+begin_example
+score = (handled_requests * 10) 
+      - (failed_requests * 5)
+      - (total_latency / 10)
+      + (services_debugged * 3)
+#+end_example
+
+** Victory Conditions
+- *Cooperative*: Maintain >80% uptime for 10 rounds
+- *Competitive*: Highest score after 10 rounds
+- *Survival*: Last player with >50% uptime
+
+* Technical Implementation Notes
+
+** State Management
+Each service maintains:
+- Current load (integer)
+- Maximum capacity (integer)
+- Bug count (integer)
+- Resource allocation (integer)
+- Connection list (array of service IDs)
+- State (enum: HEALTHY, DEGRADED, FAILED)
+
+** Event Queue
+Events process in order:
+1. Player actions
+2. Service checks
+3. Cascade failures
+4. Latency calculations
+5. Chaos events
+
+** Randomness Sources
+- d20: High variance for dramatic swings
+- d12: Moderate variance for latency
+- d10: Consistent traffic generation
+- d8: Chaos with increasing severity
+- d6: Resource allocation granularity
+- d4: Low variance for bug severity

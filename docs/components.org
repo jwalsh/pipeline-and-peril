@@ -1,0 +1,154 @@
+#+TITLE: Pipeline & Peril - Components
+#+AUTHOR: Jason Walsh
+#+DESCRIPTION: Complete inventory of game components
+
+* Dice Requirements
+
+| Dice Type | Quantity | Purpose              | Color Suggestion |
+|-----------+----------+----------------------+------------------|
+| d20       |        4 | Action resolution    | Clear/White      |
+| d12       |        4 | Latency dice         | Blue             |
+| d10       |       10 | Traffic/load dice    | Red              |
+| d8        |        5 | Chaos dice           | Black            |
+| d6        |       20 | Resource dice        | Green            |
+| d4        |       10 | Bug severity dice    | Orange           |
+|-----------+----------+----------------------+------------------|
+| *Total*   |       53 |                      |                  |
+
+* Tokens and Markers
+
+** Load Tokens (50)
+- Represent incoming requests
+- Placed on services during traffic phase
+- Color: Yellow
+
+** Bug Tokens (30)
+- Mark services with bugs
+- Stack to show multiple bugs
+- Color: Red
+
+** Failure Tokens (20)  
+- Mark failed services
+- Trigger cascade failures
+- Color: Black
+
+** Resource Cubes (40)
+- Represent allocated CPU/memory
+- Placed on services during allocation
+- Color: Green
+
+* Cards
+
+** Event Cards (40)
+- Random events each round
+- Mix of positive and negative effects
+- Examples:
+  - "Cache Hit" - Reduce latency by 2
+  - "DDoS Attack" - Double incoming traffic
+  - "Auto-scaling" - Free scale action
+
+** Chaos Cards (20)
+- The Static's attacks
+- Always negative effects
+- Severity based on chaos level
+- Examples:
+  - "Network Partition" - Disconnect 2 services
+  - "Disk Failure" - Database service fails
+  - "Memory Leak" - Service loses 1 resource per turn
+
+** Character Cards (4)
+- One per player class
+- Shows special ability
+- Tracks experience points (optional)
+
+** Reference Cards (4)
+- Quick rules summary
+- Turn order reminder
+- Common action costs
+
+* Boards and Tiles
+
+** Main Game Board
+- Grid for placing services (8x8)
+- Network connection paths
+- Turn tracker (1-10)
+- Chaos level tracker (1-5)
+- Uptime percentage tracker
+
+** Character Boards (4)
+Individual player boards showing:
+- Character ability
+- Action tracker (3 per turn)
+- Resource pool area
+- Personal uptime score
+
+** Service Tiles (30)
+
+| Service Type | Quantity | Base Capacity | Special Rules        |
+|--------------+----------+---------------+----------------------|
+| Compute      |       10 |             3 | Scales horizontally  |
+| Database     |        8 |             2 | Provides persistence |
+| Cache        |        6 |             4 | Reduces latency      |
+| Queue        |        6 |             5 | Buffers overflow     |
+
+** Network Path Connectors (40)
+- Connect services together
+- Show data flow direction
+- Can be disrupted by chaos
+
+* Tracking Components
+
+** Uptime Trackers (4)
+- Track each player's uptime percentage
+- Range: 0-100%
+- Victory condition: >80%
+
+** Round Tracker (1)
+- Shows current round (1-10)
+- Marks game progression
+
+** Chaos Level Tracker (1)
+- Shows current chaos intensity (1-5)
+- Increases each round
+- Affects chaos roll severity
+
+* Optional Components
+
+** Timer (1)
+- 2-minute sand timer
+- For timed turns variant
+
+** Score Pad
+- For competitive mode
+- Track points per round
+
+** Dry Erase Markers (4)
+- For character boards
+- Track temporary effects
+
+* Print-and-Play Version
+
+For the print-and-play version, you need:
+- Standard playing cards (as event/chaos cards)
+- Standard dice set
+- Printed tiles and boards
+- Coins or buttons as tokens
+- Graph paper for main board
+
+* Component Quality Tiers
+
+** Basic Edition
+- Cardboard tiles and boards
+- Plastic tokens
+- Standard dice
+
+** Deluxe Edition
+- Wooden service tiles
+- Metal tokens
+- Custom engraved dice
+- Neoprene game mat
+
+** Digital Components
+- Companion app for tracking
+- Digital dice roller
+- Automated cascade failure calculator

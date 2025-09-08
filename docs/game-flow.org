@@ -1,0 +1,203 @@
+#+TITLE: Pipeline & Peril - Game Flow State Machine
+#+AUTHOR: Jason Walsh
+#+DESCRIPTION: State machine diagram showing game turn progression
+
+* Game Flow State Machine
+
+This state diagram represents the complete flow of game states from setup through victory.
+
+#+begin_src mermaid :file game-flow.png :exports results
+stateDiagram-v2
+    [*] --> Setup
+    Setup --> RoundStart
+    
+    RoundStart --> TrafficPhase
+    TrafficPhase --> PlayerTurn
+    
+    PlayerTurn --> ActionSelection
+    ActionSelection --> ActionResolution
+    ActionResolution --> ActionSelection: More Actions
+    ActionResolution --> NextPlayer: No Actions
+    
+    NextPlayer --> PlayerTurn: More Players
+    NextPlayer --> ResolutionPhase: All Players Done
+    
+    ResolutionPhase --> ServiceChecks
+    ServiceChecks --> CascadeFailures
+    CascadeFailures --> LatencyCalc
+    
+    LatencyCalc --> ChaosPhase
+    ChaosPhase --> ChaosResolution
+    
+    ChaosResolution --> RoundEnd
+    RoundEnd --> RoundStart: More Rounds
+    RoundEnd --> GameEnd: Final Round
+    
+    GameEnd --> CalculateScore
+    CalculateScore --> [*]
+    
+    note right of ActionSelection
+        Build, Connect, Allocate,
+        Debug, or Scale
+    end note
+    
+    note right of ChaosPhase
+        Roll d8, apply
+        system-wide effects
+    end note
+#+end_src
+
+* State Descriptions
+
+** Setup State
+- Initialize game board
+- Distribute character boards
+- Create dice pools
+- Shuffle event and chaos decks
+- Set starting chaos level
+
+** Round States
+
+*** RoundStart
+- Increment round counter
+- Draw event card for round
+- Reset per-round resources
+- Check for round-specific events
+
+*** TrafficPhase  
+- Roll 2d10 for traffic generation
+- Apply round modifiers
+- Distribute load tokens to entry services
+
+*** PlayerTurn
+- Active player receives 3 actions
+- Timer starts (if using timed variant)
+
+*** ActionSelection
+Player chooses from available actions:
+| Action   | Cost    | Effect                           |
+|----------+---------+----------------------------------|
+| Build    | 2 actions | Add new service tile            |
+| Connect  | 1 action | Create network path             |
+| Allocate | 1 action | Assign resource dice            |
+| Debug    | 1 action | Remove bugs (roll d20 vs d4)   |
+| Scale    | Varies  | Increase service capacity       |
+
+*** ActionResolution
+- Apply action effects immediately
+- Update board state
+- Trigger any immediate consequences
+
+*** NextPlayer
+- Pass turn to next player
+- Reset action counter
+- Apply any between-turn effects
+
+** Resolution Phase States
+
+*** ResolutionPhase
+Begin automated resolution of the system state.
+
+*** ServiceChecks
+For each service:
+1. Calculate total load
+2. Calculate effective capacity
+3. Roll d20 + capacity vs load
+4. Mark success or failure
+
+*** CascadeFailures
+Process failure propagation:
+#+begin_example
+while (new_failures_exist):
+    for each failed_service:
+        propagate_failure_to_dependencies()
+    check_for_new_failures()
+#+end_example
+
+*** LatencyCalc
+- Count network hops for successful requests
+- Roll d12 for each hop
+- Sum total latency
+- Apply latency penalties to next round
+
+** Chaos Phase States
+
+*** ChaosPhase
+The Static strikes:
+1. Roll d8 for chaos event
+2. Consult chaos table for round
+3. Apply chaos modifiers
+
+*** ChaosResolution
+- Resolve chaos effects
+- Spawn bugs on affected services
+- Update chaos level if needed
+- Draw replacement chaos card
+
+** End States
+
+*** RoundEnd
+- Calculate round scores
+- Update uptime percentages
+- Check for elimination (if applicable)
+- Advance round marker
+
+*** GameEnd
+Triggered when:
+- Round 10 completes
+- All players eliminated (failure)
+- Emergency stop condition met
+
+*** CalculateScore
+Final scoring:
+- Sum all handled requests
+- Subtract all failed requests
+- Apply character bonuses
+- Determine winner(s)
+
+* State Transition Rules
+
+** Valid Transitions
+- Setup can only proceed to RoundStart
+- Actions must complete before next player
+- Resolution must complete before chaos
+- Chaos must complete before round end
+
+** Interrupt States
+Some events can interrupt normal flow:
+- *Critical Failure*: Jump to CascadeFailures
+- *Emergency Shutdown*: Jump to GameEnd
+- *Timeout* (timed variant): Jump to NextPlayer
+
+** State Guards
+Conditions that must be met for transitions:
+- ActionSelection → ActionResolution: Valid action selected
+- NextPlayer → ResolutionPhase: All players have acted
+- RoundEnd → RoundStart: Rounds remaining > 0
+- RoundEnd → GameEnd: Round number = 10
+
+* Implementation Notes
+
+** State Persistence
+Each state should track:
+- Current round number
+- Active player index
+- Actions remaining
+- Services states array
+- Chaos level
+- Event queue
+
+** State Machine Benefits
+- Clear game flow
+- Easy to implement digitally
+- Supports save/restore
+- Enables AI players
+- Simplifies rule disputes
+
+** Parallel States
+Some states can process in parallel:
+- Multiple service checks
+- Cascade failure propagation
+- Latency calculations
+
+This improves game flow and reduces downtime.
