@@ -53,6 +53,8 @@ Each die type represents a different computational concept:
 - Network path connectors
 - Tracking boards for uptime and chaos
 
+See [[file:docs/components.md][Complete Components List]] for detailed inventory.
+
 *** Character Classes
 - *Developer*: Reroll failed service checks
 - *Architect*: Create redundant paths efficiently
@@ -69,22 +71,31 @@ Pipeline & Peril teaches real distributed systems concepts through play:
 - *Capacity Planning*: Resource allocation and scaling decisions
 - *Chaos Engineering*: Anticipating and handling unexpected failures
 
+** Documentation
+
+- [[file:docs/game-rules.md][📖 Complete Game Rules]] - Full rulebook with detailed turn structure
+- [[file:docs/components.md][🎲 Components List]] - Complete inventory of all game pieces
+- [[file:docs/architecture.mmd][🏗️ System Architecture]] - Mermaid diagram of game flow
+- [[file:docs/game-flow.mmd][🔄 Game State Machine]] - State diagram of turn progression
+- [[file:TODO.org][✅ Development TODO]] - Project roadmap and ideas
+
 ** Project Structure
 
 #+begin_src
 pipeline-and-peril/
 ├── README.org          # This file
-├── SETUP.org          # Literate configuration (generates all files)
-├── docs/              # Game documentation
-│   ├── game-rules.md
-│   ├── components.md
-│   ├── architecture.mmd
-│   └── game-flow.mmd
-├── assets/            # Visual assets
-│   ├── tiles/
-│   └── cards/
-├── playtesting/       # Testing notes and feedback
-└── scripts/           # Setup and utility scripts
+├── README.md           # Markdown version for quick reference
+├── TODO.org            # Development roadmap
+├── docs/               # Game documentation
+│   ├── game-rules.md   # Complete rulebook
+│   ├── components.md   # Component inventory
+│   ├── architecture.mmd # System flow diagram
+│   └── game-flow.mmd   # Turn state machine
+├── assets/             # Visual assets
+│   ├── tiles/          # Service tile designs
+│   └── cards/          # Event and chaos cards
+├── playtesting/        # Testing notes and feedback
+└── scripts/            # Setup and utility scripts
 #+end_src
 
 ** Quick Start
@@ -97,9 +108,9 @@ pipeline-and-peril/
 
 *** For Contributors
 1. Clone the repository
-2. Run =org-babel-tangle= on =SETUP.org= to generate all files
-3. Execute =./scripts/setup.sh= to create directory structure
-4. See =TODO.org= for development roadmap
+2. Execute =./scripts/setup.sh= to create any missing directories
+3. See [[file:TODO.org][TODO.org]] for development roadmap
+4. Submit playtesting feedback via GitHub issues
 
 ** Development Status
 
