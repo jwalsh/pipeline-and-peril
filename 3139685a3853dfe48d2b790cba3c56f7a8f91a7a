@@ -1,0 +1,4 @@
+Makefile refactor: 2025-09-08 19:37:43
+Implemented best practices from Stuart Feldman (Bell Labs, 1976) and
+GNU Make maintainers. Now uses sentinels, atomic operations, and
+proper distinction between phony and file targets.
