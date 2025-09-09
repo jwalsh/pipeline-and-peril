@@ -1,0 +1,609 @@
+#+TITLE: Phase 2: Digital Prototype Development
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: CLI implementation and AI development experiments
+
+* Overview
+
+Phase 2 transforms validated mechanics into a playable digital prototype, enabling rapid iteration and automated testing at scale.
+
+* Timeline: Q1-Q2 2025 (March - May)
+
+| Week | Focus Area | Experiments | Deliverables |
+|------+------------+-------------+--------------|
+| 1-2  | CLI Engine | 004 | Playable CLI game |
+| 3-4  | AI Development | 005 | AI opponents |
+| 5-6  | Balance Testing | 006 | Balance report |
+| 7-8  | Integration | All | v0.1.0 release |
+
+* Experiment 004: CLI Prototype
+
+** Hypothesis
+A command-line implementation provides:
+- Rapid prototyping capability
+- Automated testing framework
+- Minimal UI overhead
+- Focus on mechanics validation
+
+** Metrics to Track
+
+*** Performance Metrics
+| Metric | Target | Measurement |
+|--------+--------+-------------|
+| Game initialization | <100ms | Time to start |
+| Turn processing | <50ms | Average turn time |
+| Memory usage | <50MB | Peak RAM usage |
+| Save/load time | <500ms | Serialization time |
+
+*** Gameplay Metrics
+| Metric | Target | Measurement |
+|--------+--------+-------------|
+| Commands per turn | 3-5 | User actions |
+| Error rate | <5% | Invalid commands |
+| Completion rate | >80% | Games finished |
+| Session length | 45-90min | Average duration |
+
+** Implementation Plan
+
+*** 004a: Core Game Loop
+#+begin_src python
+class GameEngine:
+    def __init__(self):
+        self.state = GameState()
+        self.players = []
+        self.round = 0
+        self.phase = Phase.SETUP
+        
+    def run(self):
+        while not self.is_game_over():
+            self.advance_phase()
+            self.process_phase()
+            self.update_display()
+            self.collect_input()
+        
+        self.show_results()
+    
+    def advance_phase(self):
+        """State machine for game phases"""
+        transitions = {
+            Phase.SETUP: Phase.TRAFFIC,
+            Phase.TRAFFIC: Phase.ACTIONS,
+            Phase.ACTIONS: Phase.RESOLUTION,
+            Phase.RESOLUTION: Phase.CHAOS,
+            Phase.CHAOS: Phase.END_TURN,
+            Phase.END_TURN: Phase.TRAFFIC
+        }
+        self.phase = transitions[self.phase]
+#+end_src
+
+*** 004b: Command Interface
+#+begin_src python
+@dataclass
+class Command:
+    action: str
+    target: Optional[str]
+    parameters: Dict[str, Any]
+
+class CLI:
+    commands = {
+        'build': BuildCommand,
+        'connect': ConnectCommand,
+        'allocate': AllocateCommand,
+        'debug': DebugCommand,
+        'scale': ScaleCommand,
+        'status': StatusCommand,
+        'help': HelpCommand
+    }
+    
+    def parse_input(self, text: str) -> Command:
+        parts = text.split()
+        action = parts[0].lower()
+        
+        if action not in self.commands:
+            raise InvalidCommandError(f"Unknown command: {action}")
+        
+        return self.commands[action].parse(parts[1:])
+#+end_src
+
+*** 004c: State Management
+#+begin_src yaml
+game_state:
+  round: 5
+  phase: "actions"
+  chaos_level: 2
+  players:
+    - id: "player1"
+      character: "developer"
+      actions_remaining: 2
+      score: 450
+  services:
+    - id: "api-1"
+      type: "compute"
+      state: "healthy"
+      capacity: 3
+      load: 2
+      resources: 1
+      bugs: 0
+      connections: ["db-1", "cache-1"]
+  metrics:
+    uptime: 82.5
+    requests_handled: 89
+    requests_failed: 11
+    total_latency: 234
+#+end_src
+
+*** 004d: Display System
+#+begin_src python
+class Display:
+    def render_board(self, state):
+        """ASCII art game board"""
+        print("="*60)
+        print(f"Round {state.round} - {state.phase}")
+        print(f"Chaos Level: {'🔥' * state.chaos_level}")
+        print("="*60)
+        
+        # Service grid
+        for row in state.grid:
+            for cell in row:
+                if cell.service:
+                    print(self.render_service(cell.service), end='')
+                else:
+                    print('[ ]', end='')
+            print()
+    
+    def render_service(self, service):
+        icons = {
+            'healthy': '✅',
+            'degraded': '⚠️',
+            'failed': '❌'
+        }
+        return f"[{icons[service.state]}]"
+#+end_src
+
+** Data Collection Schema
+#+begin_src json
+{
+  "experiment": "004-cli-prototype",
+  "session": {
+    "id": "uuid",
+    "version": "0.1.0",
+    "start_time": "2025-03-01T10:00:00Z",
+    "end_time": "2025-03-01T11:30:00Z",
+    "completed": true
+  },
+  "game_data": {
+    "rounds_played": 10,
+    "final_uptime": 78.5,
+    "winner": "player1",
+    "total_commands": 145,
+    "invalid_commands": 7,
+    "average_turn_time": 89.3
+  },
+  "performance": {
+    "peak_memory_mb": 42.3,
+    "average_cpu_percent": 3.2,
+    "total_disk_io_mb": 15.7
+  }
+}
+#+end_src
+
+* Experiment 005: Game AI
+
+** Hypothesis
+Different AI personalities create:
+- Varied gameplay experiences
+- Strategy validation
+- Difficulty scaling
+- Single-player viability
+
+** AI Personalities
+
+*** Defensive AI ("The Guardian")
+#+begin_src python
+class DefensiveAI(BaseAI):
+    """Prioritizes reliability and redundancy"""
+    
+    weights = {
+        'build_redundancy': 0.8,
+        'debug_immediately': 0.9,
+        'allocate_evenly': 0.7,
+        'maintain_buffer': 0.8
+    }
+    
+    def choose_action(self, state):
+        # Priority 1: Fix any degraded services
+        if degraded := self.find_degraded_services(state):
+            return DebugAction(target=degraded[0])
+        
+        # Priority 2: Build redundancy
+        if critical := self.find_critical_paths(state):
+            return BuildAction(type='compute', 
+                             position=self.find_redundant_position(critical[0]))
+        
+        # Priority 3: Allocate resources defensively
+        return AllocateAction(
+            resources=self.calculate_defensive_allocation(state)
+        )
+#+end_src
+
+*** Aggressive AI ("The Optimizer")
+#+begin_src python
+class AggressiveAI(BaseAI):
+    """Maximizes throughput and efficiency"""
+    
+    weights = {
+        'maximize_capacity': 0.9,
+        'minimal_redundancy': 0.3,
+        'scale_aggressively': 0.8,
+        'risk_tolerance': 0.7
+    }
+    
+    def choose_action(self, state):
+        # Priority 1: Scale successful services
+        if profitable := self.find_profitable_services(state):
+            return ScaleAction(target=profitable[0])
+        
+        # Priority 2: Build high-capacity services
+        if capacity_needed := self.calculate_capacity_gap(state):
+            return BuildAction(type='queue', 
+                             position=self.find_optimal_position(state))
+        
+        # Priority 3: Aggressive resource allocation
+        return AllocateAction(
+            resources=self.calculate_aggressive_allocation(state)
+        )
+#+end_src
+
+*** Balanced AI ("The Strategist")
+#+begin_src python
+class BalancedAI(BaseAI):
+    """Adapts strategy based on game state"""
+    
+    def choose_action(self, state):
+        # Analyze current situation
+        risk_level = self.assess_risk(state)
+        opportunity = self.find_opportunities(state)
+        
+        if risk_level > 0.7:
+            # Switch to defensive
+            return self.defensive_action(state)
+        elif opportunity > 0.8:
+            # Exploit opportunity
+            return self.aggressive_action(state)
+        else:
+            # Balanced approach
+            return self.balanced_action(state)
+    
+    def assess_risk(self, state):
+        factors = {
+            'chaos_level': state.chaos_level / 4,
+            'failed_services': len(state.failed_services) / len(state.services),
+            'uptime_risk': max(0, 0.8 - state.uptime),
+            'cascade_potential': self.calculate_cascade_risk(state)
+        }
+        return sum(factors.values()) / len(factors)
+#+end_src
+
+*** Learning AI ("The Student")
+#+begin_src python
+class LearningAI(BaseAI):
+    """Learns from previous games"""
+    
+    def __init__(self):
+        super().__init__()
+        self.memory = ExperienceReplay(capacity=1000)
+        self.model = self.build_model()
+    
+    def choose_action(self, state):
+        # Epsilon-greedy exploration
+        if random.random() < self.epsilon:
+            return self.random_action(state)
+        
+        # Use learned policy
+        state_vector = self.encode_state(state)
+        action_values = self.model.predict(state_vector)
+        return self.decode_action(action_values.argmax())
+    
+    def learn(self, experience):
+        self.memory.add(experience)
+        
+        if len(self.memory) > self.batch_size:
+            batch = self.memory.sample(self.batch_size)
+            self.train_on_batch(batch)
+#+end_src
+
+** Metrics to Track
+
+*** AI Performance Metrics
+| AI Type | Win Rate | Avg Score | Avg Uptime | Games/Hour |
+|---------+----------+-----------+------------+------------|
+| Defensive | - | - | - | - |
+| Aggressive | - | - | - | - |
+| Balanced | - | - | - | - |
+| Learning | - | - | - | - |
+
+*** Decision Quality Metrics
+- Decision time per action
+- Actions per turn
+- Unique strategies discovered
+- Adaptation rate
+- Mistake frequency
+
+** Testing Protocol
+
+*** 005a: AI vs Random
+- 100 games per AI type
+- Random opponent baseline
+- Track win rates
+
+*** 005b: AI vs AI Tournament
+- Round-robin tournament
+- 50 games per matchup
+- ELO rating calculation
+
+*** 005c: AI vs Human
+- Playtesting sessions
+- Difficulty perception
+- Fun factor rating
+- Strategy diversity
+
+*** 005d: AI Learning Curve
+- Track improvement over time
+- Identify convergence point
+- Measure strategy evolution
+
+* Experiment 006: Balance Testing
+
+** Hypothesis
+Automated testing at scale reveals:
+- Hidden imbalances
+- Dominant strategies
+- Edge cases
+- Optimal parameters
+
+** Testing Framework
+
+*** 006a: Monte Carlo Simulation
+#+begin_src python
+class BalanceTester:
+    def run_monte_carlo(self, n_simulations=10000):
+        results = []
+        
+        for i in range(n_simulations):
+            # Randomize parameters
+            params = self.randomize_parameters()
+            
+            # Run game
+            game = GameEngine(params)
+            result = game.simulate()
+            
+            # Collect metrics
+            results.append({
+                'parameters': params,
+                'outcome': result,
+                'metrics': game.get_metrics()
+            })
+        
+        return self.analyze_results(results)
+    
+    def randomize_parameters(self):
+        return {
+            'service_capacity': random.randint(2, 5),
+            'cascade_rate': random.uniform(0.2, 0.6),
+            'chaos_scaling': random.uniform(1.0, 2.0),
+            'resource_effectiveness': random.uniform(0.5, 1.5)
+        }
+#+end_src
+
+*** 006b: Genetic Algorithm Optimization
+#+begin_src python
+class GeneticOptimizer:
+    def evolve_parameters(self, generations=100):
+        population = self.initialize_population(size=50)
+        
+        for gen in range(generations):
+            # Evaluate fitness
+            fitness = self.evaluate_population(population)
+            
+            # Selection
+            parents = self.select_parents(population, fitness)
+            
+            # Crossover and mutation
+            offspring = self.crossover(parents)
+            offspring = self.mutate(offspring)
+            
+            # Replace population
+            population = self.select_survivors(population + offspring, fitness)
+        
+        return self.best_individual(population)
+    
+    def fitness_function(self, parameters):
+        """Balance multiple objectives"""
+        game = GameEngine(parameters)
+        result = game.simulate()
+        
+        return weighted_sum({
+            'win_rate_balance': abs(0.5 - result.win_rate),
+            'game_length': abs(60 - result.duration_minutes),
+            'excitement': result.comeback_frequency,
+            'decision_variety': result.unique_strategies
+        })
+#+end_src
+
+*** 006c: Sensitivity Analysis
+#+begin_src python
+def sensitivity_analysis(base_params):
+    """Test parameter sensitivity"""
+    results = {}
+    
+    for param_name, base_value in base_params.items():
+        param_results = []
+        
+        # Test range around base value
+        for multiplier in [0.5, 0.75, 1.0, 1.25, 1.5]:
+            test_params = base_params.copy()
+            test_params[param_name] = base_value * multiplier
+            
+            # Run games
+            outcomes = run_games(test_params, n=100)
+            param_results.append({
+                'multiplier': multiplier,
+                'win_rate': outcomes.win_rate,
+                'avg_duration': outcomes.duration,
+                'fun_score': outcomes.fun_score
+            })
+        
+        results[param_name] = param_results
+    
+    return results
+#+end_src
+
+** Metrics Dashboard
+
+*** Game Balance Metrics
+| Metric | Current | Target | Status |
+|--------+---------+--------+--------|
+| P1 Win Rate | - | 50% ±5% | 🔄 |
+| Game Duration | - | 60min ±15 | 🔄 |
+| Comeback Rate | - | 20% | 🔄 |
+| Stalemate Rate | - | <5% | 🔄 |
+| First Player Advantage | - | <10% | 🔄 |
+
+*** Strategy Diversity Metrics
+| Strategy | Usage | Win Rate | Counter |
+|----------+-------+----------+---------|
+| Rush | - | - | - |
+| Turtle | - | - | - |
+| Balanced | - | - | - |
+| Chaos | - | - | - |
+
+** Data Collection Schema
+#+begin_src json
+{
+  "experiment": "006-balance-testing",
+  "test_run": {
+    "id": "balance-test-001",
+    "timestamp": "2025-04-15T10:00:00Z",
+    "parameters": {
+      "service_base_capacity": 3,
+      "cascade_probability": 0.4,
+      "chaos_escalation": 1.2
+    },
+    "results": {
+      "games_played": 1000,
+      "p1_wins": 487,
+      "p2_wins": 492,
+      "draws": 21,
+      "average_duration": 58.3,
+      "average_rounds": 9.7
+    },
+    "balance_score": 0.92
+  }
+}
+#+end_src
+
+* Integration & Release
+
+** Version 0.1.0 Checklist
+- [ ] Core game loop complete
+- [ ] All commands implemented
+- [ ] AI opponents functional
+- [ ] Save/load working
+- [ ] Tutorial mode
+- [ ] Documentation complete
+- [ ] Automated tests passing
+- [ ] Performance targets met
+
+** Release Metrics
+- Download count
+- Play session length
+- Retention rate (1 day, 7 day, 30 day)
+- Bug reports
+- Feature requests
+- Community engagement
+
+* Tools and Automation
+
+** Continuous Testing Pipeline
+#+begin_src yaml
+# .github/workflows/balance-testing.yml
+name: Balance Testing
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM
+  push:
+    branches: [main]
+
+jobs:
+  balance-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Balance Tests
+        run: |
+          python experiments/006-balance-testing/run.py \
+            --simulations 1000 \
+            --parallel 4
+      - name: Generate Report
+        run: |
+          python experiments/006-balance-testing/report.py \
+            --output artifacts/balance-report.html
+      - name: Upload Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: balance-report
+          path: artifacts/
+#+end_src
+
+** Performance Profiling
+#+begin_src python
+import cProfile
+import pstats
+
+def profile_game():
+    profiler = cProfile.Profile()
+    
+    # Profile game execution
+    profiler.enable()
+    game = GameEngine()
+    game.run_complete_game()
+    profiler.disable()
+    
+    # Generate report
+    stats = pstats.Stats(profiler)
+    stats.sort_stats('cumulative')
+    stats.print_stats(20)
+    
+    # Identify bottlenecks
+    stats.print_callers(10)
+#+end_src
+
+* Risk Assessment
+
+| Risk | Impact | Mitigation |
+|------+--------+------------|
+| CLI too complex | High | Simplify commands |
+| AI too predictable | Medium | Add randomization |
+| Balance issues | High | Continuous testing |
+| Performance problems | Low | Profile and optimize |
+| Platform compatibility | Medium | Test on multiple OS |
+
+* Success Criteria
+
+Phase 2 complete when:
+- [ ] CLI game fully playable
+- [ ] 4 AI personalities working
+- [ ] 10,000+ automated games run
+- [ ] Balance within targets
+- [ ] Performance acceptable
+- [ ] Code coverage >80%
+- [ ] Documentation complete
+- [ ] v0.1.0 released
+
+* Next Phase Dependencies
+
+Phase 3 (Physical Prototype) requires:
+- Validated digital rules
+- Balanced parameters
+- AI for solo testing
+- Performance baselines

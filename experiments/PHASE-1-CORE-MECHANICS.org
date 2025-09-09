@@ -1,0 +1,487 @@
+#+TITLE: Phase 1: Core Mechanics Validation
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: Deep dive into core game mechanics experiments
+
+* Overview
+
+Phase 1 establishes the mathematical and mechanical foundation of Pipeline & Peril. Every subsequent phase depends on getting these fundamentals right.
+
+* Timeline: Q1 2025 (January - March)
+
+| Week | Focus Area | Experiments | Deliverables |
+|------+------------+-------------+--------------|
+| 1-2  | Dice Mechanics | 001 | Probability tables |
+| 3-4  | Service States | 002 | State machine |
+| 5-6  | Cascade Failures | 003 | Propagation model |
+| 7-8  | Integration Testing | All | Balance report |
+
+* Experiment 001: Dice Mechanics
+
+** Hypothesis
+The polyhedral dice system creates appropriate probability distributions with:
+- Predictable outcomes for strategic planning
+- Enough randomness for excitement
+- Meaningful modifier impacts
+
+** Metrics to Track
+
+*** Primary Metrics
+| Metric | Target | Tolerance | Measurement |
+|--------+--------+-----------+-------------|
+| d20 average | 10.5 | ±0.5 | Mean of 10,000 rolls |
+| Service success (light load) | 85% | ±5% | Success rate |
+| Service success (normal load) | 75% | ±5% | Success rate |
+| Service success (heavy load) | 65% | ±5% | Success rate |
+| Service success (overload) | 35% | ±10% | Success rate |
+| Critical success rate (20) | 5% | ±1% | Frequency |
+| Critical failure rate (1) | 5% | ±1% | Frequency |
+
+*** Secondary Metrics
+- Distribution uniformity (Chi-square test)
+- Modifier effectiveness (+1 to +5)
+- Player perception of fairness
+- Time to resolve dice roll
+- Dice availability in standard sets
+
+** Sub-experiments
+
+*** 001a: Basic Probability Distributions
+#+begin_src python
+# Test each die type independently
+for die in ['d4', 'd6', 'd8', 'd10', 'd12', 'd20']:
+    - Roll 10,000 times
+    - Calculate mean, median, mode, std dev
+    - Verify uniform distribution
+    - Test against theoretical values
+#+end_src
+
+*** 001b: Combined Dice Mechanics
+#+begin_src python
+# Test common combinations
+combinations = [
+    '2d10',  # Traffic generation
+    'd20 + d6',  # Service check with resources
+    '3d6',  # Resource allocation
+    'd12 + d12',  # Multi-hop latency
+]
+#+end_src
+
+*** 001c: Modifier Impact Analysis
+#+begin_src python
+# Test how modifiers affect success rates
+for modifier in range(-5, 6):
+    for difficulty in range(5, 21):
+        success_rate = simulate_checks(modifier, difficulty, n=1000)
+        # Track modifier effectiveness curve
+#+end_src
+
+*** 001d: Player Experience Testing
+- Time trials for dice resolution
+- Cognitive load assessment
+- Fun factor rating
+- Frustration points identification
+
+** Data Collection Schema
+#+begin_src json
+{
+  "experiment": "001-dice-mechanics",
+  "sub_experiment": "001a",
+  "timestamp": "2025-01-10T10:00:00Z",
+  "trial": {
+    "id": "uuid",
+    "die_type": "d20",
+    "roll": 17,
+    "modifiers": 2,
+    "final_value": 19,
+    "target": 15,
+    "success": true,
+    "time_ms": 45,
+    "context": {
+      "load_level": "normal",
+      "resources": 3,
+      "bugs": 1
+    }
+  }
+}
+#+end_src
+
+** Analysis Plan
+1. Statistical validation (Kolmogorov-Smirnov test)
+2. Success rate curves by difficulty
+3. Modifier effectiveness visualization
+4. Player feedback correlation
+5. Recommendation report
+
+* Experiment 002: Service States
+
+** Hypothesis
+The service state system creates meaningful decisions through:
+- Clear state transitions
+- Predictable degradation patterns
+- Recovery mechanisms that reward planning
+
+** Metrics to Track
+
+*** State Transition Metrics
+| Transition | Frequency | Duration | Recovery Rate |
+|-----------+-----------+----------+---------------|
+| Healthy → Degraded | 20-30% | 2-3 turns | 70% |
+| Degraded → Failed | 30-40% | 1-2 turns | 40% |
+| Failed → Degraded | N/A | 1 turn | 100% |
+| Degraded → Healthy | N/A | 1-2 turns | 80% |
+
+*** Service Health Metrics
+- Mean time between failures (MTBF)
+- Mean time to recovery (MTTR)
+- Service availability percentage
+- Bug accumulation rate
+- Resource efficiency
+
+** Sub-experiments
+
+*** 002a: State Machine Validation
+#+begin_src yaml
+states:
+  - healthy:
+      capacity: 100%
+      bug_resistance: high
+      transitions:
+        - degraded: "bug OR overload"
+  - degraded:
+      capacity: 50%
+      bug_resistance: low
+      transitions:
+        - healthy: "debug action"
+        - failed: "overload OR timeout"
+  - failed:
+      capacity: 0%
+      bug_resistance: none
+      transitions:
+        - degraded: "repair action"
+#+end_src
+
+*** 002b: Load Testing
+- Test services under various load patterns
+- Measure breaking points
+- Identify optimal resource allocation
+- Test auto-scaling mechanics
+
+*** 002c: Bug Propagation
+- Bug spawn rates by chaos level
+- Bug severity distribution
+- Debug action success rates
+- Cumulative bug effects
+
+*** 002d: Resource Management
+- Resource allocation strategies
+- Efficiency curves
+- Waste identification
+- Optimal distribution patterns
+
+** Data Collection Schema
+#+begin_src json
+{
+  "experiment": "002-service-states",
+  "service": {
+    "id": "api-gateway-1",
+    "type": "compute",
+    "state": "degraded",
+    "capacity": 3,
+    "current_load": 5,
+    "resources": 2,
+    "bugs": 1,
+    "connections": ["service-2", "service-3"],
+    "uptime_percentage": 78.5
+  },
+  "transition": {
+    "from": "healthy",
+    "to": "degraded",
+    "trigger": "bug_spawned",
+    "timestamp": "2025-01-15T14:30:00Z",
+    "turn": 5
+  }
+}
+#+end_src
+
+** Analysis Plan
+1. State transition probability matrix
+2. Service reliability curves
+3. Resource optimization models
+4. Bug impact assessment
+5. Player strategy patterns
+
+* Experiment 003: Cascade Failures
+
+** Hypothesis
+Cascade failures create dramatic moments while remaining:
+- Predictable enough to plan against
+- Limited enough to recover from
+- Realistic to actual system failures
+
+** Metrics to Track
+
+*** Cascade Propagation Metrics
+| Metric | Target | Range | Measurement |
+|--------+--------+-------+-------------|
+| Propagation rate | 40% | 30-50% | Failed dependencies |
+| Chain length | 3 | 2-4 | Max propagation depth |
+| Recovery time | 2 turns | 1-3 | Turns to stabilize |
+| Total impact | 30% | 20-40% | Services affected |
+
+*** Failure Patterns
+- Single point of failure frequency
+- Critical path identification
+- Redundancy effectiveness
+- Isolation strategy success
+
+** Sub-experiments
+
+*** 003a: Propagation Mechanics
+#+begin_src python
+def cascade_test(topology, initial_failure):
+    failed = {initial_failure}
+    wave = 1
+    
+    while True:
+        new_failures = set()
+        for service in failed:
+            for dependent in topology[service]:
+                if random.random() < CASCADE_PROBABILITY:
+                    new_failures.add(dependent)
+        
+        if not new_failures:
+            break
+            
+        failed.update(new_failures)
+        wave += 1
+    
+    return {
+        'total_failed': len(failed),
+        'waves': wave,
+        'percentage': len(failed) / len(topology)
+    }
+#+end_src
+
+*** 003b: Topology Testing
+Test different network topologies:
+- Star (centralized)
+- Mesh (distributed)
+- Hierarchical (layered)
+- Hybrid (mixed)
+
+*** 003c: Mitigation Strategies
+- Circuit breakers
+- Bulkheads
+- Redundant paths
+- Graceful degradation
+
+*** 003d: Recovery Patterns
+- Rolling restart
+- Phased recovery
+- Priority restoration
+- Full system reset
+
+** Data Collection Schema
+#+begin_src json
+{
+  "experiment": "003-cascade-failures",
+  "cascade_event": {
+    "id": "cascade-001",
+    "initial_failure": "database-1",
+    "trigger": "disk_failure",
+    "propagation": [
+      {
+        "wave": 1,
+        "failed": ["api-1", "api-2"],
+        "mechanism": "dependency"
+      },
+      {
+        "wave": 2,
+        "failed": ["web-1"],
+        "mechanism": "overload"
+      }
+    ],
+    "total_impact": {
+      "services_failed": 4,
+      "services_total": 10,
+      "percentage": 40,
+      "recovery_turns": 3
+    }
+  }
+}
+#+end_src
+
+** Analysis Plan
+1. Cascade propagation models
+2. Topology vulnerability analysis
+3. Mitigation effectiveness
+4. Recovery time optimization
+5. Player experience impact
+
+* Integration Testing
+
+** Combined Mechanics Validation
+After individual experiments, test the complete system:
+
+*** Balance Testing
+- 100 simulated games
+- Various player strategies
+- Different difficulty settings
+- Win rate analysis
+
+*** Timing Analysis
+- Turn duration
+- Decision complexity
+- Analysis paralysis points
+- Flow state maintenance
+
+*** Fun Factor Assessment
+- Tension curves
+- Decision meaningfulness
+- Comeback mechanics
+- Victory satisfaction
+
+** Metrics Dashboard
+| Category | Metric | Current | Target | Status |
+|----------+--------+---------+--------+--------|
+| Balance | Win rate | - | 50% ±10% | 🔄 |
+| Pacing | Turn time | - | <2 min | 🔄 |
+| Complexity | Decisions/turn | - | 3-5 | 🔄 |
+| Drama | Comeback rate | - | 20% | 🔄 |
+| Learning | Rules mastery | - | 3 games | 🔄 |
+
+* Tools and Scripts
+
+** Data Collection Tools
+#+begin_src python
+# experiments/001-dice-mechanics/collect.py
+class DiceDataCollector:
+    def __init__(self):
+        self.session = uuid4()
+        self.data = []
+    
+    def record_roll(self, die_type, value, context):
+        self.data.append({
+            'timestamp': datetime.now().isoformat(),
+            'session': self.session,
+            'die_type': die_type,
+            'value': value,
+            'context': context
+        })
+    
+    def save(self, filename):
+        with open(filename, 'w') as f:
+            for record in self.data:
+                f.write(json.dumps(record) + '\n')
+#+end_src
+
+** Analysis Scripts
+#+begin_src python
+# experiments/001-dice-mechanics/analyze.py
+def analyze_distributions(data_file):
+    df = pd.read_json(data_file, lines=True)
+    
+    # Statistical tests
+    for die_type in df['die_type'].unique():
+        subset = df[df['die_type'] == die_type]['value']
+        
+        # Uniformity test
+        chi2, p_value = chisquare(subset.value_counts())
+        
+        # Distribution metrics
+        metrics = {
+            'mean': subset.mean(),
+            'std': subset.std(),
+            'skew': subset.skew(),
+            'kurtosis': subset.kurtosis(),
+            'chi2_p': p_value
+        }
+        
+        print(f"{die_type}: {metrics}")
+#+end_src
+
+** Visualization Templates
+#+begin_src python
+# experiments/001-dice-mechanics/visualize.py
+def create_dashboard(data_file, output_dir):
+    fig = plt.figure(figsize=(20, 12))
+    
+    # Grid of subplots
+    gs = fig.add_gridspec(3, 4, hspace=0.3, wspace=0.3)
+    
+    # Dice distributions
+    ax1 = fig.add_subplot(gs[0, :2])
+    plot_dice_distributions(ax1, data)
+    
+    # Success rates
+    ax2 = fig.add_subplot(gs[0, 2:])
+    plot_success_rates(ax2, data)
+    
+    # Modifier effects
+    ax3 = fig.add_subplot(gs[1, :2])
+    plot_modifier_curves(ax3, data)
+    
+    # Time analysis
+    ax4 = fig.add_subplot(gs[1, 2:])
+    plot_resolution_times(ax4, data)
+    
+    # Save dashboard
+    plt.savefig(output_dir / 'dashboard.png', dpi=150)
+#+end_src
+
+* Risk Mitigation
+
+| Risk | Probability | Impact | Mitigation |
+|------+-------------+--------+------------|
+| Dice too random | Medium | High | Add more modifiers |
+| States too complex | Low | Medium | Simplify transitions |
+| Cascades too devastating | Medium | High | Add circuit breakers |
+| Math too complicated | Low | Medium | Provide reference cards |
+| Testing takes too long | High | Low | Automate collection |
+
+* Success Criteria
+
+Phase 1 is complete when:
+- [ ] All probability distributions validated
+- [ ] State machine tested and balanced
+- [ ] Cascade mechanics tuned
+- [ ] Integration tests passing
+- [ ] Player feedback positive
+- [ ] Documentation complete
+- [ ] Tools automated
+- [ ] Data archived
+
+* Next Phase Dependencies
+
+Phase 2 (Digital Prototype) requires:
+- Finalized dice mechanics
+- Balanced service states
+- Tuned cascade parameters
+- Core game loop validated
+
+* Appendix: Mathematical Models
+
+** Service Check Probability
+#+begin_example
+P(success) = P(d20 ≥ target)
+where target = max(10, load - capacity - resources + bugs + 10)
+
+For d20 uniform distribution:
+P(roll ≥ n) = (21 - n) / 20 for n ∈ [1, 20]
+#+end_example
+
+** Cascade Propagation Model
+#+begin_example
+P(cascade) = base_rate * (1 + load_factor) * (1 - redundancy_factor)
+where:
+  base_rate = 0.4
+  load_factor = current_load / max_capacity
+  redundancy_factor = alternate_paths / total_paths
+#+end_example
+
+** Expected Game Length
+#+begin_example
+E[turns] = sum(turn_probability * turn_number)
+Target: E[turns] ∈ [10, 15] for normal difficulty
+#+end_example

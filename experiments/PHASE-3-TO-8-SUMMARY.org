@@ -1,0 +1,371 @@
+#+TITLE: Phases 3-8: Complete Development Roadmap
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: Physical prototype through launch experiments
+
+* Phase 3: Physical Prototype (Q2 2025)
+
+** Experiment 007: Component Design
+
+*** Metrics to Track
+| Component | Material | Cost/Unit | Durability | Readability |
+|-----------+----------+-----------+------------+-------------|
+| Service Tiles | Cardboard | $0.10 | 100 plays | 95% |
+| Dice Set | Acrylic | $5.00 | Unlimited | 100% |
+| Tokens | Wood | $0.05 | 500 plays | N/A |
+| Cards | Cardstock | $0.03 | 200 shuffles | 98% |
+
+*** Sub-experiments
+- 007a: Material testing (cardboard vs chipboard vs plastic)
+- 007b: Size optimization (table space requirements)
+- 007c: Color scheme testing (colorblind accessibility)
+- 007d: Icon design validation (recognition without text)
+
+** Experiment 008: Print-and-Play
+
+*** Metrics to Track
+- Download-to-print conversion: >60%
+- Print-to-play conversion: >40%
+- Assembly time: <30 minutes
+- Ink usage: <20 pages color
+- File size: <50MB PDF
+
+*** Distribution Channels
+- BGG (BoardGameGeek)
+- Itch.io
+- GitHub Releases
+- Project website
+
+** Experiment 009: Playtesting Alpha
+
+*** Metrics to Track
+| Session | Players | Duration | Fun Rating | Issues Found |
+|---------+---------+----------+------------+--------------|
+| Target  | 4       | 60-90min | >7/10      | <5 critical  |
+
+*** Feedback Categories
+- Rules clarity
+- Component usability
+- Game balance
+- Fun factor
+- Learning curve
+- Replayability
+
+* Phase 4: Visual Design (Q2-Q3 2025)
+
+** Experiment 010: Art Style
+
+*** Style Variations to Test
+1. **Cyberpunk Neon**: Dark with bright accents
+2. **Clean Technical**: Minimalist diagrams
+3. **Playful Cartoon**: Approachable and fun
+4. **Realistic Corporate**: Professional tech
+
+*** Metrics
+- Appeal rating (1-10)
+- Theme fit (1-10)
+- Readability score
+- Production cost
+- Color requirement
+
+** Experiment 011: Iconography
+
+*** Icon Categories
+| Category | Count | Recognition Target | Test Method |
+|----------+-------+-------------------+-------------|
+| Services | 4 | >90% | Flash cards |
+| States | 3 | >95% | Quick recognition |
+| Actions | 5 | >85% | Context test |
+| Resources | 3 | >90% | Sorting task |
+
+** Experiment 012: Board Layout
+
+*** Layout Variations
+1. **Grid System**: 8x8 traditional board
+2. **Hub and Spoke**: Central services with radiating connections
+3. **Layered Architecture**: Vertical tier system
+4. **Free-form Network**: Flexible placement
+
+* Phase 5: Web Implementation (Q3 2025)
+
+** Experiment 013: Web Prototype
+
+*** Technology Stack Testing
+| Stack | Pros | Cons | Performance |
+|-------+------+------+-------------|
+| React + Node | Popular | Complex | Good |
+| Vue + FastAPI | Simple | Less support | Excellent |
+| Svelte + Go | Fast | New | Excellent |
+| HTMX + Python | Simple | Limited | Good |
+
+*** Metrics
+- Load time: <3s
+- Time to interactive: <5s
+- Memory usage: <100MB
+- Frame rate: 60fps
+- Mobile responsive: 100%
+
+** Experiment 014: Multiplayer
+
+*** Architecture Options
+1. **Peer-to-peer**: WebRTC direct connections
+2. **Client-server**: Authoritative server
+3. **Hybrid**: P2P with server backup
+
+*** Metrics
+- Latency: <100ms
+- Concurrent games: 1000+
+- Reconnection: <5s
+- Sync accuracy: 100%
+
+** Experiment 015: Tutorial System
+
+*** Tutorial Stages
+| Stage | Concept | Duration | Completion Rate |
+|-------+---------+----------+-----------------|
+| 1 | Basic moves | 5 min | >90% |
+| 2 | Service management | 10 min | >80% |
+| 3 | Combat chaos | 10 min | >70% |
+| 4 | Advanced strategy | 15 min | >60% |
+
+* Phase 6: Educational Package (Q3-Q4 2025)
+
+** Experiment 016: Curriculum
+
+*** Learning Objectives Mapping
+| Game Concept | CS Concept | Learning Time | Assessment |
+|--------------+------------+---------------+------------|
+| Service States | Process states | 20 min | Quiz |
+| Cascades | Failure propagation | 30 min | Scenario |
+| Load Balancing | Resource allocation | 25 min | Puzzle |
+| Chaos Events | Fault tolerance | 30 min | Simulation |
+
+*** Grade Level Adaptations
+- High School: Simplified rules, focus on concepts
+- Undergraduate: Full rules, theory connections
+- Graduate: Advanced scenarios, research papers
+- Professional: Real-world case studies
+
+** Experiment 017: Workshops
+
+*** Workshop Formats
+| Format | Duration | Participants | Materials |
+|--------+----------+--------------+-----------|
+| Intro | 2 hours | 20 | Basic |
+| Deep Dive | 4 hours | 12 | Full |
+| Bootcamp | 2 days | 30 | Extended |
+
+** Experiment 018: Assessments
+
+*** Assessment Types
+- Pre/post knowledge tests
+- Skill demonstrations
+- Problem-solving scenarios
+- Concept mapping
+- Peer evaluations
+
+* Phase 7: Production (Q4 2025)
+
+** Experiment 019: Manufacturing
+
+*** Production Options
+| Method | MOQ | Unit Cost | Lead Time | Quality |
+|--------+-----+-----------+-----------+---------|
+| Print-on-demand | 1 | $40 | 2 weeks | Good |
+| Regional printer | 500 | $25 | 6 weeks | Better |
+| Overseas | 1500 | $15 | 12 weeks | Best |
+
+** Experiment 020: Packaging
+
+*** Package Testing
+- Drop test: 6 feet
+- Compression: 50 lbs
+- Humidity: 85% RH
+- Temperature: -20°F to 120°F
+- Shelf appeal: A/B testing
+
+** Experiment 021: Distribution
+
+*** Channel Analysis
+| Channel | Margin | Reach | Control | Risk |
+|---------+--------+-------+---------+------|
+| Direct | 60% | Low | High | Low |
+| Amazon | 35% | High | Low | Medium |
+| Retail | 40% | Medium | Low | High |
+| Kickstarter | 50% | Medium | Medium | Medium |
+
+* Phase 8: Launch (Q1 2026)
+
+** Experiment 022: Beta Release
+
+*** Beta Program Metrics
+- Applications: 500+
+- Selected: 100
+- Feedback rate: >60%
+- Bug reports: <50
+- NPS score: >8
+
+*** Beta Feedback Categories
+- Gameplay issues
+- Component quality
+- Rule clarifications
+- Balance problems
+- Feature requests
+
+** Experiment 023: Community Building
+
+*** Community Platforms
+| Platform | Purpose | Target Size | Engagement |
+|----------+---------+-------------+------------|
+| Discord | Daily chat | 500 | High |
+| Reddit | Discussions | 1000 | Medium |
+| BGG | Reviews | 100 | Low |
+| YouTube | Tutorials | 5000 views | Medium |
+
+*** Content Calendar
+- Weekly: Development updates
+- Bi-weekly: Strategy articles
+- Monthly: Tournament
+- Quarterly: Major release
+
+** Experiment 024: Feedback Loop
+
+*** Feedback Integration Process
+1. **Collection**: Multiple channels
+2. **Categorization**: Priority matrix
+3. **Analysis**: Trend identification
+4. **Planning**: Sprint integration
+5. **Implementation**: Iterative updates
+6. **Communication**: Change logs
+
+*** Success Metrics
+- Response time: <48 hours
+- Implementation rate: >30%
+- Satisfaction: >80%
+- Retention: >60%
+
+* Cross-Phase Tracking Dashboard
+
+** Master Metrics Table
+| Phase | Status | Progress | Blockers | Next Milestone |
+|-------+--------+----------+----------+----------------|
+| 1. Core | 🟡 | 20% | None | Dice validation |
+| 2. Digital | ⚪ | 0% | Phase 1 | CLI complete |
+| 3. Physical | ⚪ | 0% | Phase 2 | Print-and-play |
+| 4. Visual | ⚪ | 0% | Phase 3 | Art style |
+| 5. Web | ⚪ | 0% | Phase 2 | Tech stack |
+| 6. Education | ⚪ | 0% | Phase 3 | Curriculum |
+| 7. Production | ⚪ | 0% | Phase 4 | Quotes |
+| 8. Launch | ⚪ | 0% | Phase 7 | Beta program |
+
+Legend: 🟢 Complete | 🟡 In Progress | ⚪ Not Started | 🔴 Blocked
+
+** Risk Matrix
+| Risk | P | I | Phase | Mitigation |
+|------+---+---+-------+------------|
+| Scope creep | H | H | All | Strict phases |
+| Balance issues | M | H | 1-2 | Continuous testing |
+| Manufacturing delays | M | M | 7 | Multiple suppliers |
+| Low adoption | L | H | 8 | Marketing plan |
+| Technical debt | M | M | 2,5 | Refactoring sprints |
+
+P = Probability (L/M/H), I = Impact (L/M/H)
+
+** Resource Allocation
+| Phase | Dev Hours | Design Hours | Test Hours | Budget |
+|-------+-----------+--------------+------------+--------|
+| 1 | 200 | 50 | 100 | $5k |
+| 2 | 400 | 100 | 200 | $10k |
+| 3 | 100 | 200 | 150 | $8k |
+| 4 | 50 | 300 | 50 | $15k |
+| 5 | 300 | 150 | 150 | $12k |
+| 6 | 150 | 100 | 100 | $7k |
+| 7 | 50 | 50 | 200 | $20k |
+| 8 | 100 | 100 | 300 | $23k |
+| Total | 1350 | 1050 | 1250 | $100k |
+
+* Experiment Tracking System
+
+** Data Pipeline
+#+begin_src mermaid
+graph LR
+    A[Experiment Design] --> B[Data Collection]
+    B --> C[Raw Data Storage]
+    C --> D[Processing Pipeline]
+    D --> E[Analysis Scripts]
+    E --> F[Visualization]
+    F --> G[Reports]
+    G --> H[Decision Making]
+    H --> A
+#+end_src
+
+** Automated Reporting
+#+begin_src python
+class ExperimentTracker:
+    def __init__(self):
+        self.experiments = {}
+        self.metrics = {}
+        self.reports = {}
+    
+    def track_experiment(self, exp_id, data):
+        """Record experiment data"""
+        self.experiments[exp_id] = {
+            'timestamp': datetime.now(),
+            'data': data,
+            'status': self.calculate_status(data)
+        }
+    
+    def generate_weekly_report(self):
+        """Create weekly progress report"""
+        report = {
+            'week': datetime.now().isocalendar()[1],
+            'experiments_run': len(self.experiments),
+            'success_rate': self.calculate_success_rate(),
+            'key_findings': self.extract_findings(),
+            'next_actions': self.recommend_actions()
+        }
+        return report
+    
+    def dashboard_data(self):
+        """Provide data for visualization dashboard"""
+        return {
+            'phases': self.phase_progress(),
+            'metrics': self.current_metrics(),
+            'timeline': self.timeline_status(),
+            'risks': self.risk_assessment()
+        }
+#+end_src
+
+* Success Criteria Summary
+
+The Pipeline & Peril project succeeds when:
+
+1. **Game Quality**
+   - [ ] Fun rating >8/10
+   - [ ] Replay value >5 games
+   - [ ] Rules learnable in <15 minutes
+   - [ ] Session length 45-90 minutes
+
+2. **Educational Value**
+   - [ ] Teaches 10+ CS concepts
+   - [ ] Measurable learning outcomes
+   - [ ] Curriculum alignment
+   - [ ] Workshop materials ready
+
+3. **Technical Excellence**
+   - [ ] Digital version stable
+   - [ ] <100ms response time
+   - [ ] Cross-platform support
+   - [ ] Multiplayer functional
+
+4. **Business Viability**
+   - [ ] Unit cost <$30
+   - [ ] Break-even at 500 units
+   - [ ] 3+ distribution channels
+   - [ ] Community of 1000+ players
+
+5. **Project Health**
+   - [ ] On time (Q1 2026)
+   - [ ] On budget ($100k)
+   - [ ] Team morale high
+   - [ ] Documentation complete
