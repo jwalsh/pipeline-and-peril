@@ -20,6 +20,13 @@ SHELL := /bin/bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
+# Colors for output
+GREEN := \033[0;32m
+BLUE := \033[0;34m
+YELLOW := \033[1;33m
+PURPLE := \033[0;35m
+NC := \033[0m
+
 # Project directories
 BUILD_DIR := build
 DIST_DIR := dist
@@ -44,20 +51,32 @@ RUFF := $(UV) run ruff
 help:
 	@echo "Pipeline & Peril - Development Tasks"
 	@echo ""
-	@echo "File Targets (create actual files):"
-	@echo "  README.md         - Generate from README.org"
-	@echo "  $(VENV_SENTINEL)  - Create Python virtual environment"
-	@echo "  $(BUILD_SENTINEL) - Create build directory"
+	@echo "$(GREEN)Core Targets:$(NC)"
+	@echo "  setup               - Complete project setup"
+	@echo "  dev                 - Install development dependencies"
+	@echo "  test                - Run test suite"
+	@echo "  lint                - Run linters (ruff)"
+	@echo "  format              - Format code (black)"
+	@echo "  check               - Run all checks (lint + test)"
+	@echo "  clean               - Remove generated files"
+	@echo "  clean-all           - Remove all generated files and environments"
 	@echo ""
-	@echo "Phony Targets (perform actions):"
-	@echo "  setup      - Complete project setup"
-	@echo "  dev        - Install development dependencies"
-	@echo "  test       - Run test suite"
-	@echo "  lint       - Run linters (ruff)"
-	@echo "  format     - Format code (black)"
-	@echo "  check      - Run all checks (lint + test)"
-	@echo "  clean      - Remove generated files"
-	@echo "  clean-all  - Remove all generated files and environments"
+	@echo "$(BLUE)Experiment Targets:$(NC)"
+	@echo "  experiment-new      - Create new experiment (interactive)"
+	@echo "  experiment-list     - List all experiments"
+	@echo "  experiment-run      - Run experiment (NAME=xxx-name)"
+	@echo "  experiment-analyze  - Analyze experiment (NAME=xxx-name)"
+	@echo ""
+	@echo "$(PURPLE)TMux Session Targets:$(NC)"
+	@echo "  tmux-create         - Create all development sessions"
+	@echo "  tmux-list           - List active sessions"
+	@echo "  tmux-status         - Show session status"
+	@echo "  tmux-kill-all       - Terminate all sessions"
+	@echo ""
+	@echo "$(YELLOW)File Generation:$(NC)"
+	@echo "  README.md           - Generate from README.org"
+	@echo ""
+	@echo "Example: make experiment-run NAME=001-dice-mechanics"
 
 # === NON-PHONY FILE TARGETS ===
 # These create actual files and use timestamps for dependency tracking

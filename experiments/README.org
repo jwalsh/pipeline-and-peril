@@ -1,0 +1,293 @@
+#+TITLE: Pipeline & Peril - Experiments Framework
+#+AUTHOR: Jason Walsh
+#+DATE: 2025-01-09
+#+DESCRIPTION: Comprehensive guide to the experiment-driven development process
+
+* Overview
+
+The experiments directory contains structured, reproducible experiments that validate game mechanics, test hypotheses, and guide development decisions. Each experiment follows a rigorous methodology to ensure scientific validity and actionable results.
+
+* Experiment Categories
+
+** Phase 1: Core Mechanics (001-003)
+| ID  | Name              | Status  | Description                          |
+|-----+-------------------+---------+--------------------------------------|
+| 001 | dice-mechanics    | Planned | Validate dice probability distributions |
+| 002 | service-states    | Planned | Test state transition mechanics      |
+| 003 | cascade-failures  | Planned | Validate failure propagation        |
+
+** Phase 2: Digital Prototype (004-006)
+| ID  | Name             | Status  | Description                     |
+|-----+------------------+---------+---------------------------------|
+| 004 | cli-prototype    | Planned | Command-line game engine        |
+| 005 | game-ai          | Planned | AI opponent development         |
+| 006 | balance-testing  | Planned | Automated balance validation    |
+
+** Phase 3: Physical Prototype (007-009)
+| ID  | Name             | Status  | Description                     |
+|-----+------------------+---------+---------------------------------|
+| 007 | component-design | Planned | Physical component prototypes   |
+| 008 | print-and-play   | Planned | Print-and-play version         |
+| 009 | playtesting-alpha| Planned | Alpha playtesting sessions     |
+
+** Phase 4: Visual Design (010-012)
+| ID  | Name         | Status  | Description                |
+|-----+--------------+---------+----------------------------|
+| 010 | art-style    | Planned | Art direction exploration  |
+| 011 | iconography  | Planned | Icon and symbol system     |
+| 012 | board-layout | Planned | Board design iterations    |
+
+** Phase 5: Web Implementation (013-015)
+| ID  | Name            | Status  | Description              |
+|-----+-----------------+---------+--------------------------|
+| 013 | web-prototype   | Planned | Browser-based version    |
+| 014 | multiplayer     | Planned | Online multiplayer       |
+| 015 | tutorial-system | Planned | Interactive tutorial     |
+
+** Phase 6: Educational Package (016-018)
+| ID  | Name        | Status  | Description              |
+|-----+-------------+---------+--------------------------|
+| 016 | curriculum  | Planned | Educational curriculum   |
+| 017 | workshops   | Planned | Workshop materials       |
+| 018 | assessments | Planned | Learning assessments     |
+
+** Phase 7: Production (019-021)
+| ID  | Name          | Status  | Description            |
+|-----+---------------+---------+------------------------|
+| 019 | manufacturing | Planned | Manufacturing options  |
+| 020 | packaging     | Planned | Package design         |
+| 021 | distribution  | Planned | Distribution channels  |
+
+** Phase 8: Launch (022-024)
+| ID  | Name          | Status  | Description           |
+|-----+---------------+---------+-----------------------|
+| 022 | beta-release  | Planned | Beta release program  |
+| 023 | community     | Planned | Community building    |
+| 024 | feedback-loop | Planned | Feedback integration  |
+
+* Experiment Structure
+
+Each experiment follows this standardized structure:
+
+#+begin_example
+experiments/XXX-name/
+├── README.org          # Overview and hypothesis
+├── plan.org           # Detailed methodology
+├── config.yaml        # Experiment configuration
+├── run.py            # Main experiment runner
+├── data/
+│   ├── raw/          # Unprocessed data
+│   ├── processed/    # Cleaned data
+│   └── schema.json   # Data schema definition
+├── analysis/
+│   ├── notebooks/    # Jupyter notebooks
+│   ├── scripts/      # Analysis scripts
+│   └── stats.py      # Statistical analysis
+├── artifacts/
+│   ├── figures/      # Generated graphs
+│   ├── reports/      # Analysis reports
+│   └── models/       # Trained models
+├── results.org        # Results and conclusions
+└── next-steps.org     # Future work recommendations
+#+end_example
+
+* Experiment Lifecycle
+
+** 1. Planning Phase
+- Define hypothesis
+- Identify variables
+- Design methodology
+- Set success criteria
+
+** 2. Setup Phase
+- Create experiment directory
+- Configure parameters
+- Prepare data collection
+- Initialize tracking
+
+** 3. Execution Phase
+- Run experiment code
+- Collect raw data
+- Monitor progress
+- Handle errors
+
+** 4. Analysis Phase
+- Process raw data
+- Run statistical tests
+- Generate visualizations
+- Identify patterns
+
+** 5. Documentation Phase
+- Write results summary
+- Create reports
+- Update documentation
+- Share findings
+
+** 6. Integration Phase
+- Apply learnings
+- Update game design
+- Plan follow-up experiments
+- Archive artifacts
+
+* Data Standards
+
+** Data Formats
+- Raw data: JSON Lines (.jsonl)
+- Processed data: CSV with headers
+- Configuration: YAML
+- Analysis: Jupyter notebooks (.ipynb)
+- Reports: Org-mode or Markdown
+
+** Naming Conventions
+- Timestamps: ISO 8601 (YYYY-MM-DDTHH:MM:SS)
+- Files: snake_case
+- Variables: descriptive_names
+- Versions: semantic (X.Y.Z)
+
+** Data Schema Example
+#+begin_src json
+{
+  "experiment_id": "001-dice-mechanics",
+  "timestamp": "2025-01-09T12:00:00Z",
+  "session_id": "uuid-here",
+  "parameters": {
+    "dice_type": "d20",
+    "target_number": 15,
+    "modifiers": 2
+  },
+  "results": {
+    "roll": 17,
+    "success": true,
+    "margin": 2
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "environment": "development"
+  }
+}
+#+end_src
+
+* Running Experiments
+
+** Using Make
+#+begin_src bash
+# Create new experiment
+make experiment-new
+
+# List all experiments
+make experiment-list
+
+# Run specific experiment
+make experiment-run NAME=001-dice-mechanics
+
+# Analyze results
+make experiment-analyze NAME=001-dice-mechanics
+#+end_src
+
+** Direct Execution
+#+begin_src bash
+# Navigate to experiment
+cd experiments/001-dice-mechanics
+
+# Run experiment
+python run.py --config config.yaml
+
+# Analyze results
+python analysis/stats.py data/processed/results.csv
+
+# Generate report
+jupyter notebook analysis/notebooks/exploration.ipynb
+#+end_src
+
+* Best Practices
+
+1. **Reproducibility**: Always set random seeds
+2. **Version Control**: Commit data schemas and configs
+3. **Documentation**: Update README.org immediately
+4. **Validation**: Verify data integrity before analysis
+5. **Archival**: Keep raw data unchanged
+6. **Visualization**: Create clear, labeled graphs
+7. **Peer Review**: Have experiments reviewed
+8. **Iteration**: Plan follow-up experiments
+
+* Common Patterns
+
+** A/B Testing Pattern
+Compare two game mechanics variants:
+- Control group (current mechanic)
+- Treatment group (new mechanic)
+- Measure: fun, balance, complexity
+
+** Monte Carlo Pattern
+Simulate thousands of games:
+- Randomize player decisions
+- Track win rates
+- Identify edge cases
+
+** User Study Pattern
+Gather player feedback:
+- Structured playtesting
+- Surveys and interviews
+- Behavioral observation
+
+** Performance Pattern
+Measure system efficiency:
+- Execution time
+- Memory usage
+- Scalability limits
+
+* Analysis Tools
+
+** Statistical Tests
+- T-tests for comparing means
+- Chi-square for categorical data
+- ANOVA for multiple groups
+- Regression for relationships
+
+** Visualization Libraries
+- matplotlib: Basic plots
+- seaborn: Statistical graphics
+- plotly: Interactive charts
+- networkx: Graph visualization
+
+** Data Processing
+- pandas: Data manipulation
+- numpy: Numerical computing
+- scipy: Scientific computing
+- sklearn: Machine learning
+
+* Quality Checklist
+
+Before marking an experiment complete:
+
+- [ ] Hypothesis clearly stated
+- [ ] Methodology documented
+- [ ] Data collection verified
+- [ ] Analysis reproducible
+- [ ] Results interpreted
+- [ ] Conclusions drawn
+- [ ] Next steps identified
+- [ ] Code reviewed
+- [ ] Documentation complete
+- [ ] Artifacts archived
+
+* Experiment Templates
+
+Use =experiments/TEMPLATE.org= as starting point for new experiments.
+
+* Support
+
+For questions about experiments:
+1. Check this README
+2. Review existing experiments
+3. Consult METHODOLOGY.org
+4. Ask in project discussions
+
+* Future Enhancements
+
+- Automated experiment orchestration
+- Real-time data streaming
+- Cloud-based analysis
+- Experiment dependency management
+- Automated report generation
+- Cross-experiment meta-analysis
