@@ -40,20 +40,35 @@ The game is now available as a fully playable PyGame implementation with autonom
 
 *** Screenshots
 
-**** Initial Game State
-[[file:docs/images/pipeline_peril_initial_state.png]]
+**** Game Start with Dice Panel
+[[file:digital/pygame/screenshots/pipeline_peril_01_game_start_20250910_192403.png]]
 
-Four players start with Load Balancers (LB) in the corners of a hexagonal grid. Each player has different strategies: Aggressive (Red), Defensive (Blue), Balanced (Green), and Random (Yellow).
+The game begins with each player deploying their initial load balancer. The new *Dice Rolls* panel (left) shows the current roll and history, honoring the game's origin from RustCon 2025 dice.
 
-**** Mid-Game Development
-[[file:docs/images/pipeline_peril_round_3.png]]
+**** Traffic Phase with 2d10 Roll  
+[[file:digital/pygame/screenshots/pipeline_peril_02_dice_traffic_20250910_192403.png]]
 
-After 3 rounds, the board shows a complex service network with 33 deployed services. Different service types are color-coded: Compute (Green), Database (Blue), Cache (Purple), Queue (Orange), Load Balancer (Red), and API Gateway (Cyan). Player dots show ownership.
+Traffic phase showing "2d10: 4" dice roll generating incoming requests. The hexagonal grid displays services with color-coded states. Player strategies: Aggressive (Red), Defensive (Blue), Balanced (Green), Random (Yellow).
 
-**** Debug View
-[[file:docs/images/pipeline_peril_debug_view.png]]
+**** Action Phase Decisions
+[[file:digital/pygame/screenshots/pipeline_peril_03_action_phase_20250910_192403.png]]
 
-Debug mode reveals technical details including service IDs, states, loads, connections (178 total), and performance metrics. This view shows the underlying complexity of the distributed system simulation.
+Players deploy, repair, and scale services during the action phase. Services show their type icons (LB, CO, DB, CA, QU, GW) and owner colors.
+
+**** Cascade Failure with d20 Check
+[[file:digital/pygame/screenshots/pipeline_peril_04_cascade_failure_20250910_192403.png]]
+
+Resolution phase showing cascade failure checks. The d20 roll determines if failures cascade to connected services (roll ≤ 8 triggers cascade).
+
+**** Chaos Event with d8 Roll
+[[file:digital/pygame/screenshots/pipeline_peril_05_chaos_event_20250910_192403.png]]
+
+High entropy (8/10) triggers chaos events. The "1d8: 8" roll determines which system-wide disruption occurs (datacenter outage in this case). Failed services shown in red.
+
+**** Late Game Complexity
+[[file:digital/pygame/screenshots/pipeline_peril_06_late_game_20250910_192403.png]]
+
+Complex late-game state with 20+ services deployed across the hexagonal grid. The dice history panel shows the progression of rolls throughout the game, making the RNG transparent to players.
 
 *** Running the Game
 
@@ -63,8 +78,8 @@ cd digital/pygame
 # Run autonomous games for analysis
 uv run python scripts/run_autonomous.py --games 10 --verbose
 
-# Generate screenshots
-uv run python scripts/screenshot_demo.py
+# Generate screenshots (works headless or with display)
+uv run python scripts/screenshot_generator.py --headless
 
 # Run with visual interface
 uv run python scripts/run_autonomous.py --visual --games 1
