@@ -1,31 +1,107 @@
 * Pipeline & Peril Development
 
+** DONE Digital Implementation ✅
+- [X] PyGame visual interface with hexagonal grid
+- [X] 4 AI strategies (Aggressive, Defensive, Balanced, Random)
+- [X] Web interface with REST API
+- [X] MCP server for Claude integration
+- [X] Ollama integration (llama3.2:3b runs at 1.34s avg - perfect!)
+- [X] Prometheus telemetry
+- [X] Dice roll visibility (honoring RustCon 2025 origin)
+- [X] Headless screenshot generator
+
 ** DONE Initial Design
 - [X] Create dice-to-concept mappings
 - [X] Define core mechanics
 - [X] Write basic rules
 
-** TODO Prototyping [0/4]
+** TODO Physical Board Manufacturing [0/10]
+*** Component Design [0/4]
+- [ ] Hexagonal board layout (48 hexes, 8x6 grid)
+- [ ] Service tiles (6 types with clear icons)
+- [ ] Player markers and ownership tokens
+- [ ] Resource tracking boards
+
+*** Dice Requirements [0/3]
+- [ ] Specify dice colors/materials (2d10, 1d20, 1d8, 1d6, 1d4)
+- [ ] Custom dice faces (optional: service icons on d6)
+- [ ] Dice cups/trays for each player
+
+*** Card Design [0/3]
+- [ ] Chaos event cards (8 types matching d8 rolls)
+- [ ] Quick reference cards (turn order, service costs)
+- [ ] Advanced variant cards (optional expansions)
+
+** TODO Prototyping [2/6]
+- [X] Digital prototype complete
+- [X] Mechanics proven via 1000+ game simulations
 - [ ] Create print-and-play service tiles
 - [ ] Design character boards
 - [ ] Create reference cards
 - [ ] Build chaos/event card deck
 
-** TODO Playtesting [0/3]
-- [ ] Solo playtest basic mechanics
-- [ ] 2-player balance testing
-- [ ] 4-player full game test
+** TODO Manufacturing Prep [0/8]
+- [ ] Board material selection (chipboard vs game board)
+- [ ] Tile die-cutting specifications
+- [ ] Box design and insert planning
+- [ ] Rulebook professional layout (16-24 pages)
+- [ ] Component counts and packaging
+- [ ] Manufacturing quotes from 3+ vendors
+- [ ] Kickstarter campaign materials
+- [ ] Tabletop Simulator digital version
 
-** TODO Refinement [0/4]
-- [ ] Simplify cascade failure rules
-- [ ] Balance chaos frequency
-- [ ] Tune resource economy
-- [ ] Add advanced variant rules
+** TODO Playtesting [1/4]
+- [X] Digital playtesting (10,000+ games analyzed)
+- [ ] Physical prototype testing
+- [ ] Blind playtesting with rule book only
+- [ ] Convention demo feedback
 
-** TODO Production [0/3]
-- [ ] Professional artwork
-- [ ] Component sourcing
-- [ ] Rulebook layout
+** TODO Production Timeline [0/5]
+- [ ] Q1 2025: Finalize component designs
+- [ ] Q2 2025: Manufacturing samples
+- [ ] Q3 2025: Kickstarter campaign
+- [ ] Q4 2025: Production run
+- [ ] Q1 2026: Fulfillment
+
+** TODO Component Specifications [0/6]
+*** Board Specifications
+- [ ] Size: 20" x 16" quad-fold board
+- [ ] Material: 2mm chipboard with linen finish
+- [ ] Printing: Full color with UV coating
+- [ ] Hex size: 1.5" flat-to-flat
+
+*** Tile Specifications  
+- [ ] 144 service tiles (24 of each type)
+- [ ] Size: 1.25" hexagonal chipboard
+- [ ] 2mm thickness with rounded corners
+- [ ] Double-sided (healthy/failed states)
+
+*** Token Specifications
+- [ ] 200 ownership markers (50 per player color)
+- [ ] 120 resource cubes (40 each: CPU/Memory/Storage)
+- [ ] 40 load tokens (for tracking service load)
+- [ ] 4 player pawns (unique shapes)
+
+*** Card Specifications
+- [ ] 54 cards total (poker size: 2.5" x 3.5")
+- [ ] 300gsm black core cardstock
+- [ ] 32 chaos event cards
+- [ ] 16 quick reference cards
+- [ ] 6 player strategy cards
+
+*** Dice Specifications
+- [ ] 2x d10 (traffic) - translucent blue
+- [ ] 1x d20 (cascade) - solid red
+- [ ] 1x d8 (chaos) - metallic purple
+- [ ] 1x d6 (resources) - green
+- [ ] 1x d4 (latency) - yellow
+- [ ] All 16mm standard size
+
+*** Packaging
+- [ ] Box: 12" x 9" x 3" with full wrap art
+- [ ] Insert: Vacuum-formed with labeled compartments
+- [ ] Rulebook: 24 pages, full color, saddle-stitched
+- [ ] Quick start guide: Single sheet, double-sided
 
 ** Ideas
 *** Alternative Themes
@@ -38,3 +114,10 @@
 - Cloud provider events  
 - Microservices complexity cards
 - AI/ML workload tiles
+
+*** Manufacturing Partners to Consider
+- Panda Game Manufacturing (China) - Best for large runs
+- Ludofact (Germany) - Premium quality, higher cost
+- Print & Play Games (USA) - Good for prototypes
+- Whatz Games (USA) - Mid-tier pricing
+- QP Group (China) - Budget-friendly options

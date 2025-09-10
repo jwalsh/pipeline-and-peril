@@ -1,0 +1,264 @@
+{
+  "benchmark": "Ollama Response Time Test",
+  "timestamp": "2025-09-10T19:31:18.918708",
+  "results": [
+    {
+      "model": "llama3.2:3b",
+      "timestamp": "2025-09-10T19:29:53.620690",
+      "query_results": [
+        {
+          "query": "simple_action",
+          "avg_time": 0.15011016527811685,
+          "std_dev": 0.0020664413213425585,
+          "min_time": 0.14807987213134766,
+          "max_time": 0.15221095085144043,
+          "avg_tokens_per_sec": 107.26542952830613
+        },
+        {
+          "query": "json_decision",
+          "avg_time": 0.4079793294270833,
+          "std_dev": 0.13438118840403993,
+          "min_time": 0.2806229591369629,
+          "max_time": 0.5484271049499512,
+          "avg_tokens_per_sec": 59.4425195004586
+        },
+        {
+          "query": "game_analysis",
+          "avg_time": 0.9810733000437418,
+          "std_dev": 0.07118964336435821,
+          "min_time": 0.9098918437957764,
+          "max_time": 1.0522711277008057,
+          "avg_tokens_per_sec": 56.297524025784924
+        },
+        {
+          "query": "complex_reasoning",
+          "avg_time": 3.8307029406229653,
+          "std_dev": 0.1043713635081521,
+          "min_time": 3.734454870223999,
+          "max_time": 3.941641092300415,
+          "avg_tokens_per_sec": 54.932748378496015
+        }
+      ]
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "timestamp": "2025-09-10T19:30:35.292986",
+      "query_results": [
+        {
+          "query": "simple_action",
+          "avg_time": 0.19953370094299316,
+          "std_dev": 0.04630024303348903,
+          "min_time": 0.1647491455078125,
+          "max_time": 0.25208616256713867,
+          "avg_tokens_per_sec": 52.32341741997146
+        },
+        {
+          "query": "json_decision",
+          "avg_time": 1.162704308827718,
+          "std_dev": 0.21622301435977836,
+          "min_time": 1.0307960510253906,
+          "max_time": 1.412240982055664,
+          "avg_tokens_per_sec": 27.65349826879967
+        },
+        {
+          "query": "game_analysis",
+          "avg_time": 1.6695348421732585,
+          "std_dev": 0.05967659262966751,
+          "min_time": 1.6301298141479492,
+          "max_time": 1.7381937503814697,
+          "avg_tokens_per_sec": 27.847088398974613
+        },
+        {
+          "query": "complex_reasoning",
+          "avg_time": 7.836714108784993,
+          "std_dev": 0.22077258182661427,
+          "min_time": 7.6720051765441895,
+          "max_time": 8.087573051452637,
+          "avg_tokens_per_sec": 26.540259344790766
+        }
+      ]
+    },
+    {
+      "model": "llama3.2-vision:11b",
+      "timestamp": "2025-09-10T19:31:18.913703",
+      "query_results": [
+        {
+          "query": "simple_action",
+          "avg_time": 0.22144738833109537,
+          "std_dev": 0.05587188716653457,
+          "min_time": 0.18676090240478516,
+          "max_time": 0.2859001159667969,
+          "avg_tokens_per_sec": 52.13072509425145
+        },
+        {
+          "query": "json_decision",
+          "avg_time": 1.0433866182963054,
+          "std_dev": 0.23765036131202413,
+          "min_time": 0.8839547634124756,
+          "max_time": 1.3165290355682373,
+          "avg_tokens_per_sec": 27.36068110543938
+        },
+        {
+          "query": "game_analysis",
+          "avg_time": 1.3836057980855305,
+          "std_dev": 0.340738930123502,
+          "min_time": 1.0192902088165283,
+          "max_time": 1.694443941116333,
+          "avg_tokens_per_sec": 26.474977397724942
+        },
+        {
+          "query": "complex_reasoning",
+          "avg_time": 8.0013796488444,
+          "std_dev": 0.24015372239487323,
+          "min_time": 7.778709888458252,
+          "max_time": 8.25584888458252,
+          "avg_tokens_per_sec": 26.08809434132909
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "models": {
+      "llama3.2:3b": {
+        "avg_response_time": 1.3424664338429768,
+        "suitable_for_realtime": true,
+        "suitable_for_game": true,
+        "query_breakdown": [
+          {
+            "query": "simple_action",
+            "avg_time": 0.15011016527811685,
+            "std_dev": 0.0020664413213425585,
+            "min_time": 0.14807987213134766,
+            "max_time": 0.15221095085144043,
+            "avg_tokens_per_sec": 107.26542952830613
+          },
+          {
+            "query": "json_decision",
+            "avg_time": 0.4079793294270833,
+            "std_dev": 0.13438118840403993,
+            "min_time": 0.2806229591369629,
+            "max_time": 0.5484271049499512,
+            "avg_tokens_per_sec": 59.4425195004586
+          },
+          {
+            "query": "game_analysis",
+            "avg_time": 0.9810733000437418,
+            "std_dev": 0.07118964336435821,
+            "min_time": 0.9098918437957764,
+            "max_time": 1.0522711277008057,
+            "avg_tokens_per_sec": 56.297524025784924
+          },
+          {
+            "query": "complex_reasoning",
+            "avg_time": 3.8307029406229653,
+            "std_dev": 0.1043713635081521,
+            "min_time": 3.734454870223999,
+            "max_time": 3.941641092300415,
+            "avg_tokens_per_sec": 54.932748378496015
+          }
+        ]
+      },
+      "qwen2.5-coder:7b": {
+        "avg_response_time": 2.7171217401822405,
+        "suitable_for_realtime": false,
+        "suitable_for_game": true,
+        "query_breakdown": [
+          {
+            "query": "simple_action",
+            "avg_time": 0.19953370094299316,
+            "std_dev": 0.04630024303348903,
+            "min_time": 0.1647491455078125,
+            "max_time": 0.25208616256713867,
+            "avg_tokens_per_sec": 52.32341741997146
+          },
+          {
+            "query": "json_decision",
+            "avg_time": 1.162704308827718,
+            "std_dev": 0.21622301435977836,
+            "min_time": 1.0307960510253906,
+            "max_time": 1.412240982055664,
+            "avg_tokens_per_sec": 27.65349826879967
+          },
+          {
+            "query": "game_analysis",
+            "avg_time": 1.6695348421732585,
+            "std_dev": 0.05967659262966751,
+            "min_time": 1.6301298141479492,
+            "max_time": 1.7381937503814697,
+            "avg_tokens_per_sec": 27.847088398974613
+          },
+          {
+            "query": "complex_reasoning",
+            "avg_time": 7.836714108784993,
+            "std_dev": 0.22077258182661427,
+            "min_time": 7.6720051765441895,
+            "max_time": 8.087573051452637,
+            "avg_tokens_per_sec": 26.540259344790766
+          }
+        ]
+      },
+      "llama3.2-vision:11b": {
+        "avg_response_time": 2.662454863389333,
+        "suitable_for_realtime": false,
+        "suitable_for_game": true,
+        "query_breakdown": [
+          {
+            "query": "simple_action",
+            "avg_time": 0.22144738833109537,
+            "std_dev": 0.05587188716653457,
+            "min_time": 0.18676090240478516,
+            "max_time": 0.2859001159667969,
+            "avg_tokens_per_sec": 52.13072509425145
+          },
+          {
+            "query": "json_decision",
+            "avg_time": 1.0433866182963054,
+            "std_dev": 0.23765036131202413,
+            "min_time": 0.8839547634124756,
+            "max_time": 1.3165290355682373,
+            "avg_tokens_per_sec": 27.36068110543938
+          },
+          {
+            "query": "game_analysis",
+            "avg_time": 1.3836057980855305,
+            "std_dev": 0.340738930123502,
+            "min_time": 1.0192902088165283,
+            "max_time": 1.694443941116333,
+            "avg_tokens_per_sec": 26.474977397724942
+          },
+          {
+            "query": "complex_reasoning",
+            "avg_time": 8.0013796488444,
+            "std_dev": 0.24015372239487323,
+            "min_time": 7.778709888458252,
+            "max_time": 8.25584888458252,
+            "avg_tokens_per_sec": 26.08809434132909
+          }
+        ]
+      }
+    },
+    "fastest_by_query": {
+      "simple_action": {
+        "model": "llama3.2:3b",
+        "time": 0.15011016527811685
+      },
+      "json_decision": {
+        "model": "llama3.2:3b",
+        "time": 0.4079793294270833
+      },
+      "complex_reasoning": {
+        "model": "llama3.2:3b",
+        "time": 3.8307029406229653
+      },
+      "game_analysis": {
+        "model": "llama3.2:3b",
+        "time": 0.9810733000437418
+      }
+    },
+    "recommendations": [
+      "\u2705 llama3.2:3b: Excellent for real-time game play",
+      "\u26a0\ufe0f  qwen2.5-coder:7b: Acceptable for turn-based play",
+      "\u26a0\ufe0f  llama3.2-vision:11b: Acceptable for turn-based play"
+    ]
+  }
+}
