@@ -100,34 +100,57 @@ uv run python scripts/run_autonomous.py --visual --games 1
 *** Turn Structure
 Pipeline & Peril follows a structured 4-phase turn system:
 
-#+begin_src
-┌─────────────────────────────────────────────────────┐
-│                    GAME ROUND                        │
-├─────────────────────────────────────────────────────┤
-│                                                      │
-│  ┌──────────────┐    ┌──────────────┐              │
-│  │ 1. TRAFFIC   │───►│ 2. ACTION    │              │
-│  │   PHASE      │    │    PHASE     │              │
-│  └──────────────┘    └──────────────┘              │
-│       │                    │                        │
-│       ▼                    ▼                        │
-│  Roll 2d10 for         Players take                 │
-│  incoming traffic      3 actions each:              │
-│                        - Deploy services             │
-│                        - Repair failures             │
-│                        - Scale capacity              │
-│                                                      │
-│  ┌──────────────┐    ┌──────────────┐              │
-│  │ 4. CHAOS     │◄───│ 3. RESOLUTION│              │
-│  │    PHASE     │    │     PHASE    │              │
-│  └──────────────┘    └──────────────┘              │
-│       │                    │                        │
-│       ▼                    ▼                        │
-│  Roll d8 for          Check for cascading          │
-│  chaos events          failures (d20 rolls)        │
-│  if entropy ≥ 3                                     │
-│                                                      │
-└─────────────────────────────────────────────────────┘
+#+begin_src mermaid
+graph LR
+    subgraph "Game Round"
+        T[1. TRAFFIC<br/>Roll 2d10] --> A[2. ACTION<br/>3 actions/player]
+        A --> R[3. RESOLUTION<br/>Check cascades]
+        R --> C[4. CHAOS<br/>Roll d8 if entropy≥3]
+        C --> T
+    end
+    
+    T -.->|Generate<br/>requests| Traffic{{2-20 requests}}
+    A -.->|Players choose| Actions{{Deploy/Repair/Scale}}
+    R -.->|Roll d20| Cascades{{Failure spread}}
+    C -.->|Trigger| Events{{8 chaos types}}
+#+end_src
+
+Or as a more detailed state diagram:
+
+#+begin_src mermaid
+stateDiagram-v2
+    [*] --> Traffic: New Round
+    
+    Traffic --> Action: Process Requests
+    note left of Traffic
+        Roll 2d10 for traffic
+        Route through load balancers
+        Accumulate service load
+    end note
+    
+    Action --> Resolution: Players Complete
+    note right of Action
+        Each player: 3 actions
+        - Deploy new service
+        - Repair failed service
+        - Scale service capacity
+    end note
+    
+    Resolution --> Chaos: Check Failures
+    note right of Resolution
+        Check overload conditions
+        Roll d20 for cascades
+        (≤8 triggers cascade)
+    end note
+    
+    Chaos --> Traffic: Next Round
+    note left of Chaos
+        If entropy ≥ 3:
+        Roll d8 for event type
+        Apply system disruption
+    end note
+    
+    Chaos --> [*]: Game Over
 #+end_src
 
 *** Detailed Phase Breakdown
