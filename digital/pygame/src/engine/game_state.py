@@ -179,6 +179,10 @@ class GameState:
         self.event_log = []
         self.game_start_time = time.time()
         
+        # Dice roll tracking
+        self.dice_history = []  # Track all dice rolls
+        self.last_dice_roll = None  # Most recent dice roll for display
+        
         self._initialize_starting_services()
     
     def _initialize_starting_services(self):
@@ -260,14 +264,50 @@ class GameState:
                 service.connections.add(neighbor_id)
                 neighbor.connections.add(service.id)
     
+    def roll_dice(self, dice_type: str, count: int = 1) -> tuple:
+        """Roll dice and record the result."""
+        rolls = []
+        for _ in range(count):
+            if dice_type == "d4":
+                rolls.append(random.randint(1, 4))
+            elif dice_type == "d6":
+                rolls.append(random.randint(1, 6))
+            elif dice_type == "d8":
+                rolls.append(random.randint(1, 8))
+            elif dice_type == "d10":
+                rolls.append(random.randint(1, 10))
+            elif dice_type == "d12":
+                rolls.append(random.randint(1, 12))
+            elif dice_type == "d20":
+                rolls.append(random.randint(1, 20))
+            else:
+                rolls.append(random.randint(1, 6))  # Default to d6
+        
+        total = sum(rolls)
+        roll_record = {
+            "dice_type": dice_type,
+            "count": count,
+            "rolls": rolls,
+            "total": total,
+            "round": self.round,
+            "phase": self.phase,
+            "timestamp": time.time()
+        }
+        
+        self.dice_history.append(roll_record)
+        self.last_dice_roll = roll_record
+        
+        return rolls, total
+    
     def generate_traffic(self) -> int:
         """Generate incoming traffic for this round."""
         # Roll 2d10 for requests
-        requests = random.randint(1, 10) + random.randint(1, 10)
+        rolls, requests = self.roll_dice("d10", 2)
         self.total_requests += requests
         
         self.log_event("traffic_generated", {
             "requests": requests,
+            "dice_rolls": rolls,
             "round": self.round
         })
         
@@ -351,7 +391,7 @@ class GameState:
     def _trigger_cascade_check(self, failed_service: Service):
         """Check if service failure triggers cascades."""
         # Roll d20 for cascade check
-        cascade_roll = random.randint(1, 20)
+        rolls, cascade_roll = self.roll_dice("d20", 1)
         
         # Cascade happens on roll of 8 or less (40% chance)
         if cascade_roll <= 8:
@@ -377,7 +417,7 @@ class GameState:
             return
         
         # Roll d8 for chaos event
-        chaos_roll = random.randint(1, 8)
+        rolls, chaos_roll = self.roll_dice("d8", 1)
         
         events = {
             1: ("minor_glitch", "Minor network glitch"),

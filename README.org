@@ -72,12 +72,96 @@ uv run python scripts/run_autonomous.py --visual --games 1
 
 *** Game Features
 
-- **4 AI Strategies**: Aggressive, Defensive, Balanced, Random
-- **6 Service Types**: Compute, Database, Cache, Queue, Load Balancer, API Gateway  
-- **Real-time Visualization**: Hexagonal grid with service states and connections
-- **Performance Analytics**: Win rates, uptime statistics, service deployment patterns
-- **Chaos Events**: 8 different system-wide disruptions
-- **Autonomous Play**: Run 1000+ games for statistical analysis
+- *4 AI Strategies*: Aggressive, Defensive, Balanced, Random
+- *6 Service Types*: Compute, Database, Cache, Queue, Load Balancer, API Gateway  
+- *Real-time Visualization*: Hexagonal grid with service states and connections
+- *Performance Analytics*: Win rates, uptime statistics, service deployment patterns
+- *Chaos Events*: 8 different system-wide disruptions
+- *Autonomous Play*: Run 1000+ games for statistical analysis
+- *Dice-based Mechanics*: 2d10 traffic, d20 cascade checks, d8 chaos events
+
+** Game Flow
+
+*** Turn Structure
+Pipeline & Peril follows a structured 4-phase turn system:
+
+#+begin_src
+┌─────────────────────────────────────────────────────┐
+│                    GAME ROUND                        │
+├─────────────────────────────────────────────────────┤
+│                                                      │
+│  ┌──────────────┐    ┌──────────────┐              │
+│  │ 1. TRAFFIC   │───►│ 2. ACTION    │              │
+│  │   PHASE      │    │    PHASE     │              │
+│  └──────────────┘    └──────────────┘              │
+│       │                    │                        │
+│       ▼                    ▼                        │
+│  Roll 2d10 for         Players take                 │
+│  incoming traffic      3 actions each:              │
+│                        - Deploy services             │
+│                        - Repair failures             │
+│                        - Scale capacity              │
+│                                                      │
+│  ┌──────────────┐    ┌──────────────┐              │
+│  │ 4. CHAOS     │◄───│ 3. RESOLUTION│              │
+│  │    PHASE     │    │     PHASE    │              │
+│  └──────────────┘    └──────────────┘              │
+│       │                    │                        │
+│       ▼                    ▼                        │
+│  Roll d8 for          Check for cascading          │
+│  chaos events          failures (d20 rolls)        │
+│  if entropy ≥ 3                                     │
+│                                                      │
+└─────────────────────────────────────────────────────┘
+#+end_src
+
+*** Detailed Phase Breakdown
+
+**** 1. Traffic Phase
+- *Roll 2d10* to generate incoming requests (2-20 requests)
+- Requests route through load balancers to services
+- Services accumulate load based on requests
+
+**** 2. Action Phase  
+- Each player gets 3 actions (simultaneous in digital, turn-based in board)
+- Actions cost resources (CPU, Memory, Storage)
+- Available actions:
+  - *Deploy*: Place new service on empty hex
+  - *Repair*: Fix failed/degraded service  
+  - *Scale*: Increase service capacity
+
+**** 3. Resolution Phase
+- Check each service for overload conditions
+- Services fail if load > 2x capacity
+- *Roll d20* for cascade checks when services fail
+  - Roll ≤ 8: Cascade to connected services
+  - Roll > 8: Failure contained
+
+**** 4. Chaos Phase
+- If entropy ≥ 3, *roll d8* for chaos event:
+  1. Minor glitch
+  2. Memory leak
+  3. DDoS attack
+  4. Config error
+  5. Disk full
+  6. Network partition
+  7. Security breach
+  8. Datacenter outage
+- Entropy increases based on failures
+- Round advances, return to Traffic Phase
+
+*** Victory Conditions
+
+**** Cooperative Mode
+- All players win if system uptime stays above 80% for 10 rounds
+- All players lose if uptime drops below 50%
+
+**** Competitive Mode  
+- Game ends after 10 rounds or total system failure
+- Winner has highest score:
+  - +1 point per successful request handled
+  - +5 points per healthy service owned
+  - -10 points per failed service owned
 
 ** Core Mechanics
 
@@ -140,47 +224,80 @@ Pipeline & Peril teaches real distributed systems concepts through play:
 
 #+begin_src
 pipeline-and-peril/
-├── README.org          # This file (main documentation)
-├── LICENSE             # MIT License
-├── TODO.org            # Development roadmap
-├── docs/               # Game documentation (all org-mode)
-│   ├── game-rules.org  # Complete rulebook
-│   ├── components.org  # Component inventory
-│   ├── architecture.org # System flow diagrams
-│   └── game-flow.org   # Turn state machine
-├── assets/             # Visual assets
-│   ├── tiles/          # Service tile designs
-│   └── cards/          # Event and chaos cards
-├── src/                # Python implementation
-│   └── pipeline_and_peril/
-├── tests/              # Test suite
-├── playtesting/        # Testing notes and feedback
-├── scripts/            # Setup and utility scripts
-├── Makefile            # Build automation (GNU Make)
-└── pyproject.toml      # Python project configuration
+├── README.org             # Main documentation  
+├── INTERFACES.md          # Complete interface documentation
+├── LICENSE                # MIT License
+├── TODO.org               # Development roadmap
+├── digital/               # Digital implementation
+│   └── pygame/            # PyGame version
+│       ├── src/           
+│       │   ├── engine/    # Core game logic
+│       │   ├── ui/        # PyGame visual interface
+│       │   ├── players/   # AI player implementations
+│       │   └── integration/ # Web, MCP, Ollama, telemetry
+│       ├── scripts/       # Run scripts
+│       └── screenshots/   # Game screenshots
+├── experiments/           # Development experiments
+│   ├── board-simulator.py # Original dice simulator
+│   └── 001-dice-mechanics/ # Dice testing
+├── agents/                # Agent architecture
+├── docs/                  # Game documentation (org-mode)
+├── playtesting/           # Testing notes and feedback
+├── scripts/               # Setup utilities
+├── Makefile               # Build automation (GNU Make)
+└── pyproject.toml         # Python project configuration
 #+end_src
 
 ** Quick Start
 
-*** For Players
-1. Download the print-and-play materials from =assets/=
-2. Read the rules in [[file:docs/game-rules.org][docs/game-rules.org]]
-3. Print character boards and reference cards
-4. Gather the required dice (or use a dice app)
+*** Digital Play Options
+
+**** Interactive CLI
+#+begin_src bash
+# Quick interactive game vs AI
+cd digital/pygame
+uv run python scripts/quick_play.py
+#+end_src
+
+**** Web Interface
+#+begin_src bash
+# Browser-based play at http://localhost:5000
+uv run python src/integration/web_server.py
+#+end_src
+
+**** Visual PyGame
+#+begin_src bash
+# Full visual experience
+uv run python scripts/run_autonomous.py --visual --games 1
+#+end_src
+
+**** MCP Server (for Claude)
+#+begin_src bash
+# Integration with Claude via MCP
+uv run python scripts/start_mcp_server.py
+#+end_src
+
+See [[file:INTERFACES.md][INTERFACES.md]] for complete documentation of all 7 interfaces.
 
 *** For Contributors
 1. Clone the repository
-2. Execute =./scripts/setup.sh= to create any missing directories
+2. Execute =./scripts/setup.sh= to create environment
 3. See [[file:TODO.org][TODO.org]] for development roadmap
 4. Submit playtesting feedback via GitHub issues
 
 ** Development Status
 
-Pipeline & Peril is in active development. Current focus:
-- [ ] Finalizing core mechanics balance
-- [ ] Creating print-and-play prototype
-- [ ] Playtesting with target audiences
-- [ ] Developing visual design language
+Pipeline & Peril has a complete digital implementation with multiple interfaces:
+- [X] Core game engine with dice mechanics (2d10, d20, d8)
+- [X] PyGame visual interface with hexagonal grid
+- [X] 4 AI strategies (Aggressive, Defensive, Balanced, Random)
+- [X] Web interface with REST API
+- [X] MCP server for Claude integration
+- [X] Ollama integration for LLM players
+- [X] Prometheus telemetry and metrics
+- [X] Interactive CLI for quick play
+- [ ] Physical print-and-play materials
+- [ ] Classroom educational materials
 
 ** Game Variants
 
@@ -212,9 +329,13 @@ The game emphasizes that failure is normal and expected - the challenge isn't pr
 
 This project is open source. See [[file:LICENSE][LICENSE]] file for details.
 
+** Origin Story
+
+Pipeline & Peril was born at RustCon 2025 when we acquired six pairs of RPG dice from a vendor. The tactile nature of rolling physical dice to simulate system events inspired us to create a board game that makes distributed systems concepts tangible and engaging.
+
 ** Acknowledgments
 
-Inspired by real-world distributed systems challenges and the belief that complex technical concepts can be made accessible through thoughtful game design.
+Inspired by real-world distributed systems challenges and the belief that complex technical concepts can be made accessible through thoughtful game design. Special thanks to the RustCon 2025 vendor whose dice started this journey.
 
 ---
 

@@ -310,6 +310,9 @@ class GameUI:
         
         # Actions panel (right side)
         self._draw_actions_panel()
+        
+        # Dice panel (left side)
+        self._draw_dice_panel()
     
     def _draw_game_info_panel(self):
         """Draw game information panel."""
@@ -459,6 +462,58 @@ class GameUI:
                 text = self.font_small.render(line, True, Colors.WHITE)
                 self.screen.blit(text, (50, y_offset))
             y_offset += 18
+    
+    def _draw_dice_panel(self):
+        """Draw dice roll history panel."""
+        if not self.game_state or not self.game_state.last_dice_roll:
+            return
+            
+        panel_x = 10
+        panel_y = 200
+        panel_width = 200
+        panel_height = 180
+        
+        # Background
+        pygame.draw.rect(self.screen, Colors.DARKER_BLUE,
+                        (panel_x, panel_y, panel_width, panel_height))
+        pygame.draw.rect(self.screen, Colors.WHITE,
+                        (panel_x, panel_y, panel_width, panel_height), 2)
+        
+        # Title
+        title = self.font_medium.render("Dice Rolls", True, Colors.WHITE)
+        self.screen.blit(title, (panel_x + 10, panel_y + 10))
+        
+        # Last dice roll
+        roll = self.game_state.last_dice_roll
+        y_offset = panel_y + 40
+        
+        # Dice type and total
+        dice_text = f"{roll['count']}{roll['dice_type']}: {roll['total']}"
+        text = self.font_medium.render(dice_text, True, (255, 255, 0))  # Yellow color
+        self.screen.blit(text, (panel_x + 10, y_offset))
+        
+        # Individual rolls
+        y_offset += 30
+        rolls_text = f"Rolls: {', '.join(map(str, roll['rolls']))}"
+        text = self.font_small.render(rolls_text, True, Colors.WHITE)
+        self.screen.blit(text, (panel_x + 10, y_offset))
+        
+        # Phase context
+        y_offset += 20
+        phase_text = f"Phase: {roll['phase'].title()}"
+        text = self.font_small.render(phase_text, True, Colors.LIGHT_GRAY)
+        self.screen.blit(text, (panel_x + 10, y_offset))
+        
+        # Recent history (last 3 rolls)
+        y_offset += 30
+        text = self.font_small.render("History:", True, Colors.WHITE)
+        self.screen.blit(text, (panel_x + 10, y_offset))
+        
+        y_offset += 18
+        for i, hist_roll in enumerate(self.game_state.dice_history[-3:]):
+            hist_text = f"{hist_roll['count']}{hist_roll['dice_type']}: {hist_roll['total']}"
+            text = self.font_small.render(hist_text, True, Colors.LIGHT_GRAY)
+            self.screen.blit(text, (panel_x + 10, y_offset + i * 15))
     
     def _draw_no_game_message(self):
         """Draw message when no game is loaded."""
