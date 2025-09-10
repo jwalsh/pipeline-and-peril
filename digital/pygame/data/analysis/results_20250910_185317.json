@@ -1,0 +1,4942 @@
+{
+  "metadata": {
+    "timestamp": "2025-09-10T18:53:17.848243",
+    "config": {
+      "board_rows": 8,
+      "board_cols": 6,
+      "max_rounds": 15,
+      "cooperative_mode": false
+    },
+    "strategies": [
+      "aggressive",
+      "defensive",
+      "balanced",
+      "random"
+    ]
+  },
+  "results": [
+    {
+      "game_id": 0,
+      "duration": 0.05835604667663574,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.15432098765432098,
+      "total_requests": 162,
+      "successful_requests": 25,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 11,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 9,
+            "storage": 9
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 19,
+          "services_owned": 10,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 1
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 15,
+          "services_owned": 14,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 0
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 18,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 1,
+            "storage": 0
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 6,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 4,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 4,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 41,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 43,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 44,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 45,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 46,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 47,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 48,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        }
+      ]
+    },
+    {
+      "game_id": 1,
+      "duration": 0.061450958251953125,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.08670520231213873,
+      "total_requests": 173,
+      "successful_requests": 15,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 11,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 7,
+            "storage": 9
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 19,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 0
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 16,
+          "services_owned": 14,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 0
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 17,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 5,
+            "storage": 7
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 4,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 4,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 3,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 41,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 43,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 44,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 45,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 46,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 47,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 48,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        }
+      ]
+    },
+    {
+      "game_id": 2,
+      "duration": 0.056095123291015625,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.05027932960893855,
+      "total_requests": 179,
+      "successful_requests": 9,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 11,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 9,
+            "storage": 9
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 19,
+          "services_owned": 10,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 1
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 15,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 1,
+            "storage": 0
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 18,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 7
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 41,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 43,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 44,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 45,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        }
+      ]
+    },
+    {
+      "game_id": 3,
+      "duration": 0.059988975524902344,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.06707317073170732,
+      "total_requests": 164,
+      "successful_requests": 11,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 10,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 10,
+            "storage": 10
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 19,
+          "services_owned": 10,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 2,
+            "storage": 0
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 17,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 2
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 17,
+          "services_owned": 13,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 2
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 3,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 4,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 41,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 42,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 43,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 44,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 45,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 46,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        }
+      ]
+    },
+    {
+      "game_id": 4,
+      "duration": 0.06608223915100098,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.060810810810810814,
+      "total_requests": 148,
+      "successful_requests": 9,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 13,
+          "services_owned": 14,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 5,
+            "storage": 7
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 19,
+          "services_owned": 10,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 5
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 18,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 1,
+            "storage": 0
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 16,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 2,
+            "storage": 1
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 40,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 41,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 43,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 44,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 45,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 46,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 47,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 48,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        }
+      ]
+    },
+    {
+      "game_id": 5,
+      "duration": 0.05771803855895996,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.06293706293706294,
+      "total_requests": 143,
+      "successful_requests": 9,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 12,
+          "services_owned": 13,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 7,
+            "storage": 8
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 19,
+          "services_owned": 10,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 2,
+            "storage": 0
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 18,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 5
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 16,
+          "services_owned": 13,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 5
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 41,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 43,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 44,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 45,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 46,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 47,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        }
+      ]
+    },
+    {
+      "game_id": 6,
+      "duration": 0.06263089179992676,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.045454545454545456,
+      "total_requests": 154,
+      "successful_requests": 7,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 11,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 9,
+            "storage": 9
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 18,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 1
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 16,
+          "services_owned": 14,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 2,
+            "storage": 0
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 17,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 4,
+            "storage": 1
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 41,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 43,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 44,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 45,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 46,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 47,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 48,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        }
+      ]
+    },
+    {
+      "game_id": 7,
+      "duration": 0.062026023864746094,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.08860759493670886,
+      "total_requests": 158,
+      "successful_requests": 14,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 11,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 9,
+            "storage": 9
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 19,
+          "services_owned": 9,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 4,
+            "storage": 0
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 15,
+          "services_owned": 14,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 1
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 17,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 3
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 4,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 2,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 35,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 38,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 41,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 43,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 44,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 45,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 46,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        }
+      ]
+    },
+    {
+      "game_id": 8,
+      "duration": 0.06172895431518555,
+      "rounds": 15,
+      "winner": 1,
+      "cooperative_success": false,
+      "final_uptime": 0.05333333333333334,
+      "total_requests": 150,
+      "successful_requests": 8,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 12,
+          "services_owned": 13,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 8,
+            "storage": 8
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 19,
+          "services_owned": 10,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 1
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 15,
+          "services_owned": 13,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 5
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 16,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 4,
+            "storage": 3
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 41,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 43,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 44,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 45,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 46,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 47,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 48,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        }
+      ]
+    },
+    {
+      "game_id": 9,
+      "duration": 0.05550694465637207,
+      "rounds": 15,
+      "winner": 3,
+      "cooperative_success": false,
+      "final_uptime": 0.12903225806451613,
+      "total_requests": 155,
+      "successful_requests": 20,
+      "final_entropy": 0,
+      "players": [
+        {
+          "id": 0,
+          "strategy": "aggressive",
+          "final_score": 11,
+          "services_owned": 12,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 9,
+            "storage": 9
+          }
+        },
+        {
+          "id": 1,
+          "strategy": "defensive",
+          "final_score": 17,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 0
+          }
+        },
+        {
+          "id": 2,
+          "strategy": "balanced",
+          "final_score": 15,
+          "services_owned": 14,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 0,
+            "storage": 3
+          }
+        },
+        {
+          "id": 3,
+          "strategy": "random",
+          "final_score": 19,
+          "services_owned": 11,
+          "final_resources": {
+            "cpu": 0,
+            "memory": 7,
+            "storage": 3
+          }
+        }
+      ],
+      "services_final_state": [
+        {
+          "id": 1,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 5,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 2,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 4,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 3,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 4,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 4,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 1,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 5,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 6,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 7,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 8,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 9,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 10,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 11,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 12,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 13,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 14,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 15,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 16,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 17,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 18,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 19,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 20,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 21,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 22,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 23,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 24,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 25,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 26,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 27,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 28,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 29,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 30,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 31,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 32,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 33,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 34,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 35,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 36,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 37,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 38,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 39,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 40,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 41,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 0
+        },
+        {
+          "id": 42,
+          "type": "load_balancer",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 10,
+          "bugs": 0,
+          "owner": 1
+        },
+        {
+          "id": 43,
+          "type": "compute",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 5,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 44,
+          "type": "queue",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 6,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 45,
+          "type": "cache",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 8,
+          "bugs": 0,
+          "owner": 2
+        },
+        {
+          "id": 46,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 47,
+          "type": "api_gateway",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 7,
+          "bugs": 0,
+          "owner": 3
+        },
+        {
+          "id": 48,
+          "type": "database",
+          "final_state": "healthy",
+          "final_load": 0,
+          "capacity": 3,
+          "bugs": 0,
+          "owner": 2
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "summary": {
+      "total_games": 10,
+      "avg_duration": 0.06015841960906983,
+      "avg_rounds": 15.0,
+      "avg_uptime": 0.0798554295844083,
+      "cooperative_success_rate": 0.0
+    },
+    "by_strategy": {
+      "aggressive": {
+        "games": 10,
+        "avg_score": 11.3,
+        "avg_services": 12.3,
+        "avg_uptime": 0.0798554295844083,
+        "win_rate": 0.0
+      },
+      "defensive": {
+        "games": 10,
+        "avg_score": 18.7,
+        "avg_services": 10.2,
+        "avg_uptime": 0.0798554295844083,
+        "win_rate": 0.9
+      },
+      "balanced": {
+        "games": 10,
+        "avg_score": 16.0,
+        "avg_services": 13.0,
+        "avg_uptime": 0.0798554295844083,
+        "win_rate": 0.0
+      },
+      "random": {
+        "games": 10,
+        "avg_score": 17.1,
+        "avg_services": 11.7,
+        "avg_uptime": 0.0798554295844083,
+        "win_rate": 0.1
+      }
+    },
+    "service_statistics": {
+      "load_balancer": {
+        "count": 171,
+        "avg_load": 0.47368421052631576,
+        "failure_rate": 0.0,
+        "avg_bugs": 0.0
+      },
+      "database": {
+        "count": 89,
+        "avg_load": 0.0,
+        "failure_rate": 0.0,
+        "avg_bugs": 0.0
+      },
+      "cache": {
+        "count": 62,
+        "avg_load": 0.0,
+        "failure_rate": 0.0,
+        "avg_bugs": 0.0
+      },
+      "api_gateway": {
+        "count": 66,
+        "avg_load": 0.0,
+        "failure_rate": 0.0,
+        "avg_bugs": 0.0
+      },
+      "compute": {
+        "count": 38,
+        "avg_load": 0.0,
+        "failure_rate": 0.0,
+        "avg_bugs": 0.0
+      },
+      "queue": {
+        "count": 46,
+        "avg_load": 0.0,
+        "failure_rate": 0.0,
+        "avg_bugs": 0.0
+      }
+    },
+    "performance_trends": {
+      "player_0": {
+        "games_played": 10,
+        "avg_score": 11.3,
+        "avg_uptime": 0.0798554295844083,
+        "strategy": "aggressive",
+        "action_types_used": {
+          "deploy": 61
+        },
+        "service_preferences": {
