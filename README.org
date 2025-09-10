@@ -69,6 +69,11 @@ High entropy (8/10) triggers chaos events. The "1d8: 8" roll determines which sy
 
 Complex late-game state with 20+ services deployed across the hexagonal grid. The dice history panel shows the progression of rolls throughout the game, making the RNG transparent to players.
 
+**** Final Game State - Round 10
+[[file:digital/pygame/pipeline_peril_final_game.png]]
+
+End game showing a fully developed distributed system with 40+ services. The board is nearly full with complex interconnections. Dice panel shows "2d10: 2" (minimal traffic) and history of previous rolls. Uptime at 14.3% shows the challenge of maintaining system stability!
+
 *** Running the Game
 
 #+begin_src bash

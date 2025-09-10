@@ -1,0 +1,326 @@
+* Pipeline & Peril - Kickstarter Campaign Plan Q3 2025
+
+** Campaign Overview
+*** Title
+Pipeline & Peril: The Distributed Systems Board Game
+
+*** Tagline
+"Roll dice. Deploy services. Survive chaos. Learn distributed systems through play."
+
+*** Funding Goal
+- *Initial Goal*: $15,000 (covers minimum print run of 1,500 units)
+- *Stretch Goals*: Up to $50,000 for enhanced components
+
+*** Campaign Duration
+30 days (July 1-31, 2025)
+
+** Key Marketing Messages
+
+*** Primary Hook
+"Born from six pairs of dice at RustCon 2025, Pipeline & Peril transforms complex distributed systems concepts into tangible, playable mechanics that both engineers and gamers will love."
+
+*** Value Propositions
+1. *Learn by Playing*: Master distributed systems concepts through gameplay
+2. *Proven Digital*: 10,000+ games simulated, mechanics thoroughly tested
+3. *Multiple Interfaces*: Physical board + digital implementations included
+4. *AI Integration*: Play against Ollama-powered AI opponents
+5. *Educational Tool*: Perfect for CS classrooms and tech team building
+
+*** Target Audiences
+1. *Primary*: Software engineers and DevOps professionals
+2. *Secondary*: Board game enthusiasts who enjoy strategic gameplay
+3. *Tertiary*: CS educators and students
+4. *Quaternary*: Tech companies for team building
+
+** Reward Tiers
+
+*** Early Bird Special - $39 (Limited to 500)
+- Full game (MSRP $59)
+- Kickstarter exclusive dice colors
+- Digital implementation access
+- 35% off retail
+
+*** Standard Edition - $49
+- Full game
+- Digital implementation access
+- All unlocked stretch goals
+
+*** Deluxe Edition - $79
+- Full game with upgraded components
+- Metal resource tokens
+- Custom dice tower
+- Digital implementation access
+- Name in credits
+
+*** Educator Pack - $149
+- 3 copies of the game
+- Educational materials
+- Classroom presentation slides
+- Digital site license
+- Video tutorials
+
+*** Corporate Team Pack - $399
+- 10 copies of the game
+- Custom branded dice
+- Virtual workshop session
+- Digital implementation for entire team
+
+*** Chaos Engineer - $999 (Limited to 10)
+- Everything above
+- Design a chaos event card
+- Signed by development team
+- Original prototype components
+- Video call with designers
+
+** Required Marketing Assets
+
+*** Video Content
+**** Main Campaign Video (2-3 minutes)
+- [ ] Script showing gameplay excitement
+- [ ] Show physical dice rolling (RustCon origin story)
+- [ ] Animated service deployment sequences
+- [ ] Cascade failure demonstrations
+- [ ] Player testimonials from playtesting
+- [ ] Digital implementation showcase
+
+**** How to Play Video (5-7 minutes)
+- [ ] Complete rules walkthrough
+- [ ] Turn structure demonstration
+- [ ] Strategy tips
+- [ ] Common mistakes to avoid
+
+**** Developer Diary Videos (3 x 2 minutes)
+- [ ] Episode 1: From RustCon dice to game concept
+- [ ] Episode 2: Digital prototype development
+- [ ] Episode 3: Physical component design
+
+*** Graphic Assets
+
+**** Campaign Page Graphics
+- [ ] Hero banner (1920x1080)
+- [ ] Game board beauty shot
+- [ ] Component spread photograph
+- [ ] Dice glamour shots (showing all 6 types)
+- [ ] Service tile close-ups
+- [ ] Player board detail shots
+- [ ] Box art mockup
+
+**** Animated GIFs
+- [ ] Dice rolling animation
+- [ ] Service deployment sequence
+- [ ] Cascade failure spreading
+- [ ] Chaos event triggering
+- [ ] Victory celebration
+
+**** Infographics
+- [ ] How distributed systems work (educational)
+- [ ] Game flow diagram (4 phases)
+- [ ] Component list visual
+- [ ] Stretch goal tracker
+- [ ] Manufacturing timeline
+
+**** Social Media Assets
+- [ ] Facebook cover (1200x630)
+- [ ] Twitter/X header (1500x500)
+- [ ] Instagram posts (1080x1080) - 10 designs
+- [ ] LinkedIn banner (1584x396)
+- [ ] Discord server graphics
+- [ ] Reddit promotional images
+
+*** Written Content
+
+**** Campaign Page Copy
+- [ ] 2000-word main description
+- [ ] Risk and challenges section
+- [ ] Manufacturing plan details
+- [ ] Shipping and fulfillment explanation
+- [ ] FAQ (20+ questions)
+
+**** Update Templates
+- [ ] Launch day announcement
+- [ ] 50% funded celebration
+- [ ] Stretch goal unlocked
+- [ ] Manufacturing update
+- [ ] Shipping begins
+
+**** Press Release
+- [ ] 500-word press release
+- [ ] Media kit with high-res images
+- [ ] Reviewer fact sheet
+- [ ] Developer bios
+
+** Stretch Goals
+
+*** $20,000 - Enhanced Dice
+- Upgrade to premium resin dice with custom engravings
+
+*** $25,000 - Service Miniatures
+- Replace tiles with 3D printed service miniatures
+
+*** $30,000 - Playmat
+- Neoprene playmat with hex grid included
+
+*** $35,000 - Solo Mode
+- AI-driven solo variant with dedicated components
+
+*** $40,000 - Expansion Pack
+- "Cloud Provider Events" mini-expansion (20 cards)
+
+*** $45,000 - Metal Tokens
+- Upgrade all tokens to metal
+
+*** $50,000 - Companion App
+- Native mobile app for score tracking and AI opponents
+
+** Marketing Timeline
+
+*** Pre-Launch (T-90 to T-30 days)
+- [ ] Week 1-4: Asset creation
+- [ ] Week 5-6: Video production
+- [ ] Week 7-8: Preview to influencers
+- [ ] Week 9-12: Build email list
+
+*** Pre-Launch (T-30 to T-0 days)
+- [ ] Week 1: Press release to media
+- [ ] Week 2: Review copies to content creators
+- [ ] Week 3: Social media countdown
+- [ ] Week 4: Final preparations
+
+*** During Campaign
+- [ ] Day 1: Launch with coordinated social push
+- [ ] Day 2-7: Daily updates, engage backers
+- [ ] Day 8-14: Reveal stretch goals
+- [ ] Day 15-21: Mid-campaign push
+- [ ] Day 22-28: Community challenges
+- [ ] Day 29-30: Final 48-hour push
+
+*** Post-Campaign
+- [ ] Week 1: Thank backers, survey prep
+- [ ] Week 2-4: Collect shipping info
+- [ ] Monthly: Manufacturing updates
+- [ ] Fulfillment: Shipping notifications
+
+** Content Calendar
+
+*** Blog Posts (Pre-Launch)
+1. "Why We Built a Board Game About Distributed Systems"
+2. "From RustCon Dice to Kickstarter: Our Journey"
+3. "The Science Behind Pipeline & Peril's Mechanics"
+4. "How We Tested 10,000 Games Digitally"
+5. "Teaching DevOps Through Tabletop Gaming"
+
+*** Social Media Themes
+- *Mechanical Monday*: Game mechanics deep dives
+- *Testimonial Tuesday*: Player feedback
+- *Workshop Wednesday*: Strategy tips
+- *Throwback Thursday*: Development history
+- *Feature Friday*: Component spotlights
+- *Screenshot Saturday*: Digital gameplay
+- *Strategy Sunday*: Pro tips
+
+** Influencer Outreach List
+
+*** Board Game Reviewers
+- Shut Up & Sit Down
+- Dice Tower
+- Rahdo Runs Through
+- Watch It Played
+- No Pun Included
+
+*** Tech Influencers
+- Fireship
+- NetworkChuck
+- TechLead
+- ThePrimeagen
+- Computerphile
+
+*** Educational Channels
+- Crash Course Computer Science
+- Ben Eater
+- 3Blue1Brown (for the math angle)
+- Code.org
+
+** Budget Allocation
+
+*** Video Production: $3,000
+- Main video: $2,000
+- How-to-play: $700
+- Developer diaries: $300
+
+*** Graphic Design: $2,000
+- Campaign graphics: $1,000
+- Social media assets: $500
+- Infographics: $500
+
+*** Advertising: $3,000
+- Facebook/Instagram ads: $1,500
+- BoardGameGeek ads: $500
+- Reddit promoted posts: $500
+- Google Ads: $500
+
+*** Review Copies: $1,000
+- 20 prototype copies for reviewers
+
+*** Miscellaneous: $1,000
+- Email marketing platform
+- Social media scheduling tools
+- Contingency
+
+*** Total Marketing Budget: $10,000
+
+** Success Metrics
+
+*** Primary KPIs
+- Funding percentage: Target 150% minimum
+- Backer count: Target 500+ backers
+- Average pledge: Target $65
+- Social reach: 100,000+ impressions
+
+*** Secondary KPIs
+- Email list growth: 2,000+ subscribers
+- Social followers: 1,000+ across platforms
+- Media mentions: 10+ articles/reviews
+- Video views: 50,000+ total
+
+** Risk Mitigation
+
+*** Manufacturing Risks
+- Multiple manufacturer quotes secured
+- 20% buffer in timeline
+- Quality control checkpoints defined
+
+*** Shipping Risks
+- Partner with established fulfillment centers
+- Clear communication about delays
+- Shipping insurance included
+
+*** Market Risks
+- Conservative initial goal
+- Strong digital proof of concept
+- Multiple audience segments
+
+** Call to Action Templates
+
+*** Primary CTA
+"Back Pipeline & Peril today and master distributed systems through the power of dice!"
+
+*** Urgency CTAs
+- "Only 48 hours left to get the Early Bird price!"
+- "Stretch goal unlocked! Next: Service miniatures at $25k!"
+- "Last chance to get Kickstarter exclusive dice colors!"
+
+*** Social Proof CTAs
+- "Join 500+ backers building resilient systems!"
+- "Tested by 100+ engineers - loved by all!"
+- "From the dice that started at RustCon 2025!"
+
+** Legal Considerations
+- [ ] Trademark search for "Pipeline & Peril"
+- [ ] Terms and conditions drafted
+- [ ] Fulfillment partner contracts
+- [ ] Manufacturing agreements reviewed
+- [ ] Digital distribution licenses
+
+---
+
+*Note: This campaign plan integrates the proven digital implementation with the physical board game manufacturing, leveraging the strong origin story from RustCon 2025 and the extensive testing already completed.*
