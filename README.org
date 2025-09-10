@@ -1,4 +1,3 @@
-#+TITLE: Pipeline & Peril
 #+AUTHOR: Jason Walsh
 #+DESCRIPTION: A board game teaching distributed systems concepts through RPG dice mechanics
 
