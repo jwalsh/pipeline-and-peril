@@ -34,6 +34,51 @@ Using polyhedral RPG dice to simulate real-world computing challenges, players l
 - Debugging and incident response
 - Chaos engineering principles
 
+** PyGame Implementation
+
+The game is now available as a fully playable PyGame implementation with autonomous AI players and visual interface.
+
+*** Screenshots
+
+**** Initial Game State
+[[file:docs/images/pipeline_peril_initial_state.png]]
+
+Four players start with Load Balancers (LB) in the corners of a hexagonal grid. Each player has different strategies: Aggressive (Red), Defensive (Blue), Balanced (Green), and Random (Yellow).
+
+**** Mid-Game Development
+[[file:docs/images/pipeline_peril_round_3.png]]
+
+After 3 rounds, the board shows a complex service network with 33 deployed services. Different service types are color-coded: Compute (Green), Database (Blue), Cache (Purple), Queue (Orange), Load Balancer (Red), and API Gateway (Cyan). Player dots show ownership.
+
+**** Debug View
+[[file:docs/images/pipeline_peril_debug_view.png]]
+
+Debug mode reveals technical details including service IDs, states, loads, connections (178 total), and performance metrics. This view shows the underlying complexity of the distributed system simulation.
+
+*** Running the Game
+
+#+begin_src bash
+cd digital/pygame
+
+# Run autonomous games for analysis
+uv run python scripts/run_autonomous.py --games 10 --verbose
+
+# Generate screenshots
+uv run python scripts/screenshot_demo.py
+
+# Run with visual interface
+uv run python scripts/run_autonomous.py --visual --games 1
+#+end_src
+
+*** Game Features
+
+- **4 AI Strategies**: Aggressive, Defensive, Balanced, Random
+- **6 Service Types**: Compute, Database, Cache, Queue, Load Balancer, API Gateway  
+- **Real-time Visualization**: Hexagonal grid with service states and connections
+- **Performance Analytics**: Win rates, uptime statistics, service deployment patterns
+- **Chaos Events**: 8 different system-wide disruptions
+- **Autonomous Play**: Run 1000+ games for statistical analysis
+
 ** Core Mechanics
 
 *** Dice System
